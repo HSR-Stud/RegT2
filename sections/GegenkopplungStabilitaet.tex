@@ -1,0 +1,262 @@
+\section{Gegenkopplung und Stabilität \formelbuch{107}}
+
+	
+
+	\subsection{LTI-Grundglieder}
+		\begin{longtable}{| c | c | c |}
+        	\specialrule{2pt}{0pt}{0pt}
+        	{\bf Typ} & {\it Symbol} & {\it Gleichung, Dgl}\\
+        	 & & {\it Sprungantwort}\\
+        	 & & {\it Frequenzgang, Betrag und Argument}\\ \cline{2-3}
+        	 & {\it Nyquistdiagramm} & {\it Bodediagramm}\\
+        	\specialrule{2pt}{0pt}{0pt}
+        	%P-Glied
+        	P &
+        	\begin{minipage}{3cm}
+	        \includegraphics[angle = {1.7},width=3cm]{./bilder/P_Glied.jpg}
+	        \end{minipage}
+			& \begin{minipage}{12cm}
+              	$y = Ku$\\
+              	$u=1(t)$ \hspace{17.5mm} $y=K 1(t)$\\
+              	$G(j \omega)=K$ \hspace{10mm} 
+              	$\left| G \right| = K$ \hspace{10mm}$argG=0$\\
+              \end{minipage} \rule[-2mm]{0mm}{13mm}
+			\\ \cline{2-3}
+			& \begin{minipage}{3cm}
+	        \includegraphics[width=3cm]{./bilder/P_Nyq.jpg}
+	        \end{minipage}
+			& \begin{minipage}{12cm}
+	        \includegraphics[angle = {0.3}, width=8cm]{./bilder/P_Bode.jpg}
+	        \end{minipage} \rule[-2mm]{0mm}{25mm}
+	        \\
+			\specialrule{2pt}{0pt}{0pt}
+			%I-Glied
+			I &
+			\begin{minipage}{3cm}
+	        \includegraphics[angle ={1.7},width=3cm]{./bilder/I_Glied.jpg}
+	        \end{minipage}
+			& \begin{minipage}{12cm}
+              	$\dot{y} = Ku$\\
+              	$u=1(t)$ \hspace{18.5mm} $y=K t$\\
+              	$G(j \omega)=\frac{K}{j\omega}$ \hspace{10mm} 
+              	$\left| G \right| = \frac{K}{\omega}$ \hspace{10mm}
+              	$argG=-\frac{\pi}{2}$\\
+              \end{minipage} \rule[-2mm]{0mm}{13mm}
+			\\ \cline{2-3}
+			& \begin{minipage}{3cm}
+	        \includegraphics[angle = {-0.5}, width=3cm]{./bilder/I_Nyq.jpg}
+	        \end{minipage}
+			& \begin{minipage}{12cm}
+	        \includegraphics[angle = {-0.8}, width=8cm]{./bilder/I_Bode.jpg}
+	        \end{minipage} \rule[-2mm]{0mm}{30mm}
+	        \\
+			\specialrule{2pt}{0pt}{0pt}
+			%D-Glied
+			D &
+			\begin{minipage}{3cm}
+	        \includegraphics[height=1cm]{./bilder/D_Glied2.png}      \\
+	        \includegraphics[angle ={1.7},width=3cm]{./bilder/D_Glied.jpg}
+	        \end{minipage}
+			& \begin{minipage}{12cm}
+              	$y = K\dot{u}$\\
+              	$u=1(t)$ \hspace{21.5mm} $y=K \delta (t)$\\
+              	$G(j \omega)=K j\omega$ \hspace{10mm} 
+              	$\left| G \right| = K\omega$ \hspace{10mm}
+              	$argG=\frac{\pi}{2}$\\
+              \end{minipage} \rule[-2mm]{0mm}{13mm}
+			\\ \cline{2-3}
+			& \begin{minipage}{3cm}
+	        \includegraphics[angle = {0}, width=3cm]{./bilder/D_Nyq.jpg}
+	        \end{minipage}
+			& \begin{minipage}{12cm}
+	        \includegraphics[angle = {0.5}, width=8cm]{./bilder/D_Bode.jpg}
+	        \end{minipage} \rule[-4mm]{0mm}{34mm}
+	        \\
+			\specialrule{2pt}{0pt}{0pt}
+\newpage
+			\specialrule{2pt}{0pt}{0pt}
+			%PT1_Glied
+			$PT_1$ &
+			\begin{minipage}{3cm}
+	        \includegraphics[width=3cm]{./bilder/PT1_Glied.jpg}
+	        \end{minipage}
+			& \begin{minipage}{12cm}
+              	$T\dot{y}+y=Ku$ \hspace{11.5mm} $y(0)=0$\\
+              	$u=1(t)$ \hspace{24mm} $y=K \left[ 1-e^{- \frac{t}{T}}\right]$\\
+              	$G(j \omega)= \frac{K}{1+j\omega T}$ \hspace{10mm} 
+              	$\left| G \right| = \frac{K}{\sqrt{1+(\omega T)^2}}$
+              	\hspace{20mm}
+              	$argG=-\arctan(\omega T)$\\
+              \end{minipage} \rule[-2mm]{0mm}{13mm}
+			\\ \cline{2-3}
+			& \begin{minipage}{3cm}
+	        \includegraphics[angle = {-0.5}, width=3cm]{./bilder/PT1_Nyq.jpg}
+	        \end{minipage}
+			& \begin{minipage}{12cm}
+	        \includegraphics[angle = {-0.6}, width=8cm]{./bilder/PT1_Bode.jpg}
+	        \end{minipage} \rule[-5mm]{0mm}{35mm}
+	        \\
+			\specialrule{2pt}{0pt}{0pt}
+			%PT2_Glied
+			$PT_2$ &
+			\begin{minipage}{3cm}
+	        \includegraphics[width=3cm]{./bilder/PT2_glied.jpg}
+	        \end{minipage}
+			& \begin{minipage}{12cm}
+              	$T^2\ddot{y}+2\zeta T \dot{y}+y=Ku \qquad \text{oder}
+              	\qquad	\ddot{y}+2\zeta\omega_n \dot{y}+\omega_n^2y=K\omega_n^2	u$\\ 
+              	$y(0)=0$ \hspace{10mm} $\dot{y}(0)=0$ \hspace{10mm}
+              	$\omega_n=\frac{1}{T}$\\
+              	$y=K \left[1-\frac{1}{\sqrt{1-\zeta^2}}e^{-\zeta\omega_n t}\sin
+              	\left( \sqrt{1-\zeta^2} \omega_n t+arcos(\zeta) \right)
+              	\right]$\\ 
+              	$G(j \omega)= \frac{K}{(j \omega T)^2 + 2 \zeta T (j\omega) + 1}$
+              	\hspace{10mm} 
+              	$\left| G \right| = \frac{K}{\sqrt{\left[1+(j\omega
+              	T)^2\right]^2+\left[2\zeta \omega T \right]^2}}$\\
+              	$\arg G=-\arctan  \frac{2\zeta \omega T}{(j\omega T)^2+1}$
+              	\hspace{13mm} $0 \leq\omega T \leq 1$\\
+              	$\arg G=\arctan \frac{2\zeta \omega T}{(j \omega T)^2+1}-\pi$
+              	\hspace{10mm} $1 \leq\omega T \leq \infty$\\
+              \end{minipage} \rule[-2mm]{0mm}{22mm}
+			\\ \cline{2-3}
+			& \begin{minipage}{3cm}
+	        \includegraphics[angle = {-0.3}, width=3cm]{./bilder/PT2_Nyq.jpg}
+	        \end{minipage}
+			& \begin{minipage}{12cm}
+	        \includegraphics[angle = {0.2}, width=8cm]{./bilder/PT2_Bode.jpg}
+	        \end{minipage} \rule[-5mm]{0mm}{35mm}
+	        \\
+			\specialrule{2pt}{0pt}{0pt}
+			%Tt_Glied
+			$T_t$ &
+			\begin{minipage}{3cm}
+	        \includegraphics[width=3cm]{./bilder/T_Glied.jpg}
+	        \end{minipage}
+			& \begin{minipage}{12cm}
+              	$y=\begin{cases}
+  				0 & 0<t<T_t \\
+  				u(t-T_t) & t \geq T_t
+				\end{cases}$\\
+              	$u=1(t)$ \hspace{29.5mm} $y=1(t-T_t)$\\
+              	$G(j \omega)= e^{-j\omega T_t}$ \hspace{15mm}
+              	$\left| G \right| = 1$
+              	\hspace{30mm}
+              	$argG=-\omega T_t$\\
+              \end{minipage} \rule[-2mm]{0mm}{15mm}
+			\\ \cline{2-3}
+			& \begin{minipage}{3cm}
+	        \includegraphics[angle = {0.2}, width=3cm]{./bilder/T_Nyq.jpg}
+	        \end{minipage}
+			& \begin{minipage}{12cm}
+	        \includegraphics[angle = {0.3}, width=8cm]{./bilder/T_Bode.jpg}
+	        \end{minipage} \rule[-5mm]{0mm}{35mm}
+	        \\
+			\specialrule{2pt}{0pt}{0pt}
+        \end{longtable}
+
+%----------------------------------------------------------------------------------------
+%
+%	Tabelle aus Buch Seite 124
+%
+%
+%	\subsection{Der Frequenzgang \formelbuch{117}}
+%		\begin{tabular}{| c | c | c | c |}
+%		    \hline
+%	        $P$-Glied & $I$-Glied & $PT_1$-Glied & $T_t$-Glied \\
+%	        \begin{minipage}{3cm}
+%	        \includegraphics[width=3cm]{./bilder/pglied}
+%	        \end{minipage} &
+%			\begin{minipage}{3cm}
+%	        \includegraphics[width=3cm]{./bilder/iglied}
+%	        \end{minipage} &
+%			\begin{minipage}{4cm}
+%	        \includegraphics[width=3cm]{./bilder/pt1glied}
+%	        \end{minipage} &
+%			\begin{minipage}{3cm}
+%	        \includegraphics[width=3cm]{./bilder/tglied}
+%	        \end{minipage} \\
+%	        \hline
+%	        $y=Ku$ & $\dot{y} = Ku$ & $T\dot{y}+y = Ku$ & $y=u(t-T_t)$ \\
+%	        &  &  & $t\geq T_t$ \\
+%	        \hline
+%	        $G(j\omega)=K$ & $G(j\omega)= \frac{K}{j\omega}$ &
+%	        $G(j\omega)=\frac{K}{1+j\omega T}$ &
+%	        $G(j\omega)=e^{-j\omega T_t}$\\
+%	        & & & \\
+%	        \hline
+%	        $\left| G \right| = K$ & $\left| G \right| = \frac{K}{\omega}$ &
+%	        $\left| G \right| = \frac{K}{\sqrt{1+(|\omega T)^2}}$ &
+%	        $\left| G \right| = 1$ \\
+%	        $argG=0$ & $argG= -\frac{\pi}{2}$ & $argG=-\arctan(\omega T)$ &
+%	        $argG= - \omega T_t$\\
+%	        & & &  \\
+%	        \hline
+%	        & & & \\
+%	        \begin{minipage}{3cm}
+%	        \includegraphics[width=2.7cm]{./bilder/fg_pglied}
+%	        \end{minipage} &
+%			\begin{minipage}{3cm}
+%	        \includegraphics[width=3cm]{./bilder/fg_iglied}
+%	        \end{minipage} &
+%			\begin{minipage}{4cm}
+%	        \includegraphics[width=4cm]{./bilder/fg_pt1glied}
+%	        \end{minipage} &
+%			\begin{minipage}{3cm}
+%	        \includegraphics[width=3cm]{./bilder/fg_tglied}
+%	        \end{minipage} \\
+%			& & & \\
+%	        \hline
+%	        \end{tabular}
+
+%----------------------------------------------------------------------------------------
+
+	\subsection{Stabilitätsproblem \formelbuch{108}}
+		\begin{minipage}{5cm}
+		\fbox{$K_I T_t=\frac{\pi}{2}$} \\
+		\fbox{$K_I=\omega_\pi$}
+		\end{minipage}
+		\begin{minipage}{13cm}
+        $K_I$: Stabilitätsgrenze \\
+        $\omega_\pi$: Phasenschnittfrequenz
+        \end{minipage}
+
+
+	\subsection{Nyquistkriterium \formelbuch{129}}
+		Der geschlossene Regelkreis ist genau dann stabil, wenn beim Durchlauf der
+		Ortskurve in Richtung zunehmender Frequenz der kritische Punkt -1 \glqq zur
+		Linken\grqq\ liegt.
+		
+	\subsection{Phasenreserve und Verstärkungsreserve \formelbuch{132}}
+			\begin{minipage}{3.5cm}
+			\fbox{$K_R K_{Rres}=K_{R\pi}$}\\
+			\fbox{$K_{Rres}=\frac{1}{\left| G(j\omega_{\pi})\right|}$}\\
+			\fbox{$argG_0=-\pi+\Phi_{res}$}\\
+			\fbox{$argG_0(\omega_\pi)=-\pi$}\\
+			\fbox{$|G_0(j\omega_D)|=1$}\\
+			$K_R < K_{R\pi}$\\
+			$K_R > K_{R\pi}$	
+			\end{minipage}
+			\begin{minipage}{9cm}
+        	$K_R$: \hspace{5mm}Verstärkung des Reglers \\
+        	$K_{Rres}$: Verstärkungsreserve mit Regler (Amplitudenres., gain
+        	margin)\\ $K_{R\pi}$: kritische Verstärkung (Verstärkung ohne
+        	Regler)\\ $\omega_\pi$: Phasenschnittfrequenz \\
+        	$\omega_D$: Durchtrittsfrequenz \\
+        	$\Phi_{res}$: Phasenreserve \\ \\ \\
+        	Regelung stabil\\
+        	Regelung instabil
+        	\end{minipage}
+			\begin{minipage}{6.2cm}
+        		\includegraphics[width=6.2cm]{./bilder/phasenreserve.png}
+        	\end{minipage}
+			
+	\subsection{Sprungantwort und Stabilität \formelbuch{135}}
+		\subsubsection{Stabilitätssatz für ein System 2. Ordnung \formelbuch{137}}
+			Ein System ist genau dann stabil, wenn {\bf alle} Koeffizienten der
+			homogenen Dgl. positiv (oder alle negativ) und ungleich 0 sind.\\
+			$\ddot{y}+a_1\dot{y}+a_0y=F(u)$
+			
+		\subsubsection{Stabilitätssatz für die Sprungantwort}
+			Ein LTI-System ist genau dann stabil, wenn die Sprungantwort einem
+			konstantem Wert zustrebt.
