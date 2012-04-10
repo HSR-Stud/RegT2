@@ -72,14 +72,69 @@
 		$G_0(j\omega)=\frac{K_s}{1+j\omega T_g}e^{-j\omega T_u}$
 		\vspace{2.7cm}
 		\end{minipage}\\
-		\includegraphics[width=13cm]{./bilder/CHR_Einst.jpg}
-		\begin{minipage}[b]{5cm}
-        $y_m$: \"Uberschwingen
-        \vspace{4cm}
-        \end{minipage}\\
-		Reglereinstellung nach Chien-Hrones-Reswick\\
-		\includegraphics[width=13cm]{./bilder/ZN_Einst.jpg}\\
-		Reglereinstellung nach Ziegler-Nichols
+		
+	\begin{tabular}{|l|p{1.8cm}|l|l|l|l|}
+	    \hline
+	    \multicolumn{6}{|c|}{
+	      \textbf{Reglereinstellung nach Chien-Hrones-Reswick}
+	    }
+		\\ \hline
+		\multicolumn{6}{|c|}{
+		  $
+		  q = \frac{T_g}{T_uK_S} \qquad \mu = \frac{T_g}{T_u}
+		  \qquad \text{wenn} \quad \mu
+		  \begin{cases}
+		    > 10 \rightarrow \text{Strecke gut regelbar} \\
+		    < 3 \rightarrow \text{Strecke schlecht regelbar}
+		  \end{cases}
+		  $
+		}
+		\\ \hline
+		\textbf{Regler} & \textbf{Regler\-parameter} &
+		\multicolumn{2}{|p{3.5cm}|}{\textbf{Führungsverhalten} \newline $y_m$:
+		Überschwingen} &
+		\multicolumn{2}{|c|}{\textbf{Störverhalten}}
+		\\ \hline
+		& & kein $y_m$ & $\frac{y_m}{y_\infty} = 20 \%$ & kein $a$ & $\frac{a}{b}= 20
+		\%$
+		\\ \hline
+		P 	& $K_R$ 	& $0.3q$ 	& $0.7q$ 	& $0.3q$ 	& $0.7q$
+		\\ \hline
+		PI	& $K_R$		& $0.35q$	& $0.6q$	& $0.6q$	& $0.7q$
+		\\
+		    & $T_N$		& $1.17T_g$	& $1T_g$	& $4T_u$	& $2.33T_u$
+		\\ \hline
+		PID & $K_R$		& $0.6q$	& $0.95q$	& $0.95q$	& $1.2q$
+		\\
+			& $T_N$		& $1T_g$	& $1.36T_g$	& $2.38T_u$	& $2T_u$
+		\\
+			& $T_V$		& $0.5T_u$	& $0.47T_u$	& $0.42T_u$	& $0.42T_u$
+		\\ \hline
+	\end{tabular}
+		
+
+	\begin{tabular}{|l|l|l|l|l|l|l|}
+		\hline
+		\multicolumn{7}{|c|}{
+		  \textbf{Reglereinstellung nach Ziegler-Nichols}
+		}
+		\\ \hline
+		& \multicolumn{3}{|c|}{\textbf{Sprungantwort}}
+		& \multicolumn{3}{|c|}{\textbf{Stabilitätsgrenze}}
+		\\
+	    & \multicolumn{3}{|c|}{$q = \frac{T_g}{T_uK_s}$}
+		& \multicolumn{3}{|c|}{$K_{R\pi} \qquad T_\pi = \frac{2\pi}{\omega_\pi}$}
+		\\ \hline
+		Regler 	& $K_R$ 	& $T_N$ 	& $T_V$ 	& $K_R$ 		& $T_N$ 	& $T_V$
+		\\ \hline
+		P 		& $q$ 		&			& 			& $0.5K_{R\pi}$	& 			&
+		\\ \hline
+		PI		& $0.9q$	& $3.33T_u$	& 			& $0.45K_{R\pi}$& $0.85T_\pi$&
+		\\ \hline
+		PID		& $1.2q$ 	& $2T_u$	& $0.5T_u$	& $0.60K_{R\pi}$& $0.50T_\pi$&$0.125T_\pi$ 
+		\\ \hline
+	\end{tabular}
+	
 		
 	\subsection{Wind-Up \formelbuch{200}}
 		Die Folge eines \glqq wind-up-Phänomens\grqq\ ist einerseits ein konstanter

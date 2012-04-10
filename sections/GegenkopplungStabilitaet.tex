@@ -9,9 +9,7 @@
         	\specialrule{2pt}{0pt}{0pt}
         	%P-Glied
         	P &
-        	\begin{minipage}{3cm}
-	        \includegraphics[angle = {1.7},width=3cm]{./bilder/P_Glied.jpg}
-	        \end{minipage}
+        	\parbox[c][2cm]{3cm}{\input{./tikzBilder/PGlied}}
 			& \begin{minipage}{12cm}
               	$y = Ku$\\
               	$u=1(t)$ \hspace{17.5mm} $y=K 1(t)$\\
@@ -29,9 +27,7 @@
 			\specialrule{2pt}{0pt}{0pt}
 			%I-Glied
 			I &
-			\begin{minipage}{3cm}
-	        \includegraphics[angle ={1.7},width=3cm]{./bilder/I_Glied.jpg}
-	        \end{minipage}
+			\parbox[c][2cm]{3cm}{\input{./tikzBilder/IGlied}}
 			& \begin{minipage}{12cm}
               	$\dot{y} = Ku$\\
               	$u=1(t)$ \hspace{18.5mm} $y=K t$\\
@@ -70,13 +66,9 @@
 	        \end{minipage} \rule[-4mm]{0mm}{34mm}
 	        \\
 			\specialrule{2pt}{0pt}{0pt}
-\newpage
-			\specialrule{2pt}{0pt}{0pt}
 			%PT1_Glied
 			$PT_1$ &
-			\begin{minipage}{3cm}
-	        \includegraphics[width=3cm]{./bilder/PT1_Glied.jpg}
-	        \end{minipage}
+			\parbox[c][2cm]{3cm}{\input{./tikzBilder/PT1Glied}}
 			& \begin{minipage}{12cm}
               	$T\dot{y}+y=Ku$ \hspace{11.5mm} $y(0)=0$\\
               	$u=1(t)$ \hspace{24mm} $y=K \left[ 1-e^{- \frac{t}{T}}\right]$\\
@@ -101,7 +93,8 @@
 	        \end{minipage}
 			& \begin{minipage}{12cm}
               	$T^2\ddot{y}+2\zeta T \dot{y}+y=Ku \qquad \text{oder}
-              	\qquad	\ddot{y}+2\zeta\omega_n \dot{y}+\omega_n^2y=K\omega_n^2	u$\\ 
+              	\qquad	\ddot{y}+2\zeta\omega_n \dot{y}+\omega_n^2y=K\omega_n^2
+              	u$\\
               	$y(0)=0$ \hspace{10mm} $\dot{y}(0)=0$ \hspace{10mm}
               	$\omega_n=\frac{1}{T}$\\
               	$y=K \left[1-\frac{1}{\sqrt{1-\zeta^2}}e^{-\zeta\omega_n t}\sin
@@ -127,9 +120,7 @@
 			\specialrule{2pt}{0pt}{0pt}
 			%Tt_Glied
 			$T_t$ &
-			\begin{minipage}{3cm}
-	        \includegraphics[width=3cm]{./bilder/T_Glied.jpg}
-	        \end{minipage}
+	        \parbox[c][2cm]{3cm}{\input{./tikzBilder/TtGlied}}
 			& \begin{minipage}{12cm}
               	$y=\begin{cases}
   				0 & 0<t<T_t \\
