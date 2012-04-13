@@ -1,6 +1,6 @@
 \section{Gegenkopplung und Stabilität \formelbuch{107}}
 	\subsection{LTI-Grundglieder}	
-		\begin{longtable}{|c|c|c|}
+		\begin{longtable}{|c|c|l|}
         	\specialrule{2pt}{0pt}{0pt}
         	{\bf Typ} & {\it Symbol} & {\it Gleichung, Dgl}\\
         	 & & {\it Sprungantwort}\\
@@ -8,36 +8,29 @@
         	 & {\it Nyquistdiagramm} & {\it Bodediagramm}\\
         	\specialrule{2pt}{0pt}{0pt}
         	%P-Glied
-        	P &
-        	\parbox[c][2cm]{3cm}{\input{./tikzBilder/PGlied}}
-			& \begin{minipage}{12cm}
-              	$y = Ku$\\
-              	$u=1(t)$ \hspace{17.5mm} $y=K 1(t)$\\
-              	$G(j \omega)=K$ \hspace{10mm} 
-              	$\left| G \right| = K$ \hspace{10mm}$argG=0$\\
-              \end{minipage} \rule[-2mm]{0mm}{13mm}
-			\\ \cline{2-3}
-			& 
-			\parbox[c]{3cm}{\input{./tikzBilder/PGliedNyquist}}
+        	P & \parbox[c][2cm]{3cm}{\input{./tikzBilder/PGlied}}
 			&
-			\parbox[c]{6cm}{\input{./tikzBilder/PGliedBode}}
+			\begin{tabular}{lll}
+				$y = Ku$ 		& 							& \\
+				$u=1(t)$ 		& $y=K 1(t)$ 				& \\
+				$G(j \omega)=K$	& $\left| G \right| = K$	& $argG=0$ \\
+			\end{tabular} 
+			\\ \cline{2-3}
+			& \parbox[c]{3cm}{\input{./tikzBilder/PGliedNyquist}}
+			& \parbox[c]{6cm}{\input{./tikzBilder/PGliedBode}}
 	        \\
 			\specialrule{2pt}{0pt}{0pt}
 			%I-Glied
-			I &
-			\parbox[c][2cm]{3cm}{\input{./tikzBilder/IGlied}}
-			& \begin{minipage}{12cm}
-              	$\dot{y} = Ku$\\
-              	$u=1(t)$ \hspace{18.5mm} $y=K t$\\
-              	$G(j \omega)=\frac{K}{j\omega}$ \hspace{10mm} 
-              	$\left| G \right| = \frac{K}{\omega}$ \hspace{10mm}
-              	$argG=-\frac{\pi}{2}$\\
-              \end{minipage} \rule[-2mm]{0mm}{13mm}
+			I & \parbox[c][2cm]{3cm}{\input{./tikzBilder/IGlied}}
+			&
+			\begin{tabular}{lll}
+				$\dot{y} = Ku$ 					& 										& \\
+				$u=1(t)$ 						& $y=K t$ 								& \\
+				$G(j \omega)=\frac{K}{j\omega}$ & $\left| G \right| = \frac{K}{\omega}$ & $argG=-\frac{\pi}{2}$ \\
+			\end{tabular}
 			\\ \cline{2-3}
-			& 
-			\parbox[c]{3cm}{\input{./tikzBilder/IGliedNyquist}}
-			& 
-			\parbox[c]{6cm}{\input{./tikzBilder/IGliedBode}}
+			& \parbox[c]{3cm}{\input{./tikzBilder/IGliedNyquist}}
+			& \parbox[c]{6cm}{\input{./tikzBilder/IGliedBode}}
 	        \\
 			\specialrule{2pt}{0pt}{0pt}
 			%D-Glied
