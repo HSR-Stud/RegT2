@@ -12,6 +12,11 @@ Jürg Rast
 
 Da dieser Kurs ständig aktualisiert wird, sind Aenderungen jederzeit möglich.
 
+## Erlaubte Hilfsmittel bei der Prüfung
+ * 2 Bücher
+ * 10 A4-Seiten handgeschrieben oder kopiert
+ * Taschenrechner (ohne WLAN-Features)
+
 ## Lizenz
 Diese Zusammenfassung steht unter einer Creative Commons BY-NC-SA Lizenz.
 
