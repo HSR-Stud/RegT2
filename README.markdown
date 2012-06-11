@@ -4,6 +4,14 @@
 
 Jürg Rast
 
+## Plan und Lerninhalt
+ * Gegenkopplung und Stabilität
+ * Frequenzgangdarstellungen nach Bode und Nyquist
+ * PID-Regler
+ * Aspekte der Prozessautomatisierung
+
+Da dieser Kurs ständig aktualisiert wird, sind Aenderungen jederzeit möglich.
+
 ## Lizenz
 Diese Zusammenfassung steht unter einer Creative Commons BY-NC-SA Lizenz.
 
