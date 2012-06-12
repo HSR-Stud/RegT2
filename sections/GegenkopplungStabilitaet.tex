@@ -61,23 +61,19 @@
 			
 			
 			%PT1_Glied
-			$PT_1$ &
-			\parbox[c][2cm]{3cm}{\input{./tikzBilder/PT1Glied}}
-			& \begin{minipage}{12cm}
-              	$T\dot{y}+y=Ku$ \hspace{11.5mm} $y(0)=0$\\
-              	$u=1(t)$ \hspace{24mm} $y=K \left[ 1-e^{- \frac{t}{T}}\right]$\\
-              	$G(j \omega)= \frac{K}{1+j\omega T}$ \hspace{10mm} 
-              	$\left| G \right| = \frac{K}{\sqrt{1+(\omega T)^2}}$
-              	\hspace{20mm}
-              	$argG=-\arctan(\omega T)$\\
-              \end{minipage} \rule[-2mm]{0mm}{13mm}
+			$PT_1$ & \parbox[c][2cm]{3cm}{\input{./tikzBilder/PT1Glied}}
+			&
+			\begin{tabular}{lll}
+				$T\dot{y}+y=Ku$							& $y(0)=0$									& \\
+				$u=1(t)$								& $y=K \left[ 1-e^{- \frac{t}{T}}\right]$	& \\
+				$G(j \omega)= \frac{K}{1+j\omega T}$	& $\left| G \right| = \frac{K}{\sqrt{1+(\omega T)^2}}$ &
+				$argG=-\arctan(\omega T)$
+			\end{tabular}
 			\\ \cline{2-3}
-			& \begin{minipage}{3cm}
-	        \includegraphics[angle = {-0.5}, width=3cm]{./bilder/PT1_Nyq.jpg}
-	        \end{minipage}
-			& \begin{minipage}{12cm}
-	        \includegraphics[angle = {-0.6}, width=8cm]{./bilder/PT1_Bode.jpg}
-	        \end{minipage} \rule[-5mm]{0mm}{35mm}
+			&
+			&
+			\parbox[c]{3.7cm}{\input{./tikzBilder/PT1GliedNyquist}}
+			\parbox[c]{6cm}{\input{./tikzBilder/PT1GliedBode}}
 	        \\
 			\specialrule{2pt}{0pt}{0pt}
 			
@@ -196,6 +192,8 @@
 %	        \end{tabular}
 
 %----------------------------------------------------------------------------------------
+
+
 
 	\subsection{Stabilitätsproblem \formelbuch{108}}
 		\begin{minipage}{5cm}

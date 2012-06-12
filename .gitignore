@@ -3,3 +3,5 @@ RegT2E.pdf
 *.synctex
 
 *.preview.pdf
+*preview.aux
+*preview.log
