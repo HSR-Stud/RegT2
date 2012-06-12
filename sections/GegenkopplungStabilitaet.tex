@@ -83,24 +83,20 @@
 			\begin{minipage}{3cm}
 	        \includegraphics[width=3cm]{./bilder/PT2_glied.jpg}
 	        \end{minipage}
-			& \begin{minipage}{12cm}
-              	$T^2\ddot{y}+2\zeta T \dot{y}+y=Ku \qquad \text{oder}
-              	\qquad	\ddot{y}+2\zeta\omega_n \dot{y}+\omega_n^2y=K\omega_n^2
-              	u$\\
-              	$y(0)=0$ \hspace{10mm} $\dot{y}(0)=0$ \hspace{10mm}
-              	$\omega_n=\frac{1}{T}$\\
-              	$y=K \left[1-\frac{1}{\sqrt{1-\zeta^2}}e^{-\zeta\omega_n t}\sin
-              	\left( \sqrt{1-\zeta^2} \omega_n t+arcos(\zeta) \right)
-              	\right]$\\ 
-              	$G(j \omega)= \frac{K}{(j \omega T)^2 + 2 \zeta T (j\omega) + 1}$
-              	\hspace{10mm} 
-              	$\left| G \right| = \frac{K}{\sqrt{\left[1+(j\omega
-              	T)^2\right]^2+\left[2\zeta \omega T \right]^2}}$\\
-              	$\arg G=-\arctan  \frac{2\zeta \omega T}{(j\omega T)^2+1}$
-              	\hspace{13mm} $0 \leq\omega T \leq 1$\\
-              	$\arg G=\arctan \frac{2\zeta \omega T}{(j \omega T)^2+1}-\pi$
-              	\hspace{10mm} $1 \leq\omega T \leq \infty$\\
-              \end{minipage} \rule[-2mm]{0mm}{22mm}
+	        &
+	        \begin{tabular}{lll}
+	        	$T^2\ddot{y}+2\zeta T \dot{y}+y=Ku$ & $\ddot{y}+2\zeta\omega_n \dot{y}+\omega_n^2y=K\omega_n^2u$ & \\
+	        	$y(0)=0$ & $\dot{y}(0)=0$ & $\omega_n=\frac{1}{T}$ \\
+	        	\multicolumn{3}{l}{
+	        		$y=K \left[1-\frac{1}{\sqrt{1-\zeta^2}}e^{-\zeta\omega_n t}\sin
+               		\left( \sqrt{1-\zeta^2} \omega_n t+arcos(\zeta) \right)\right]$
+               	} \\
+               	$G(j \omega)= \frac{K}{(j \omega T)^2 + 2 \zeta T (j\omega) + 1}$ & $\left| G \right| = \frac{K}{\sqrt{\left[1+(j\omega
+               	T)^2\right]^2+\left[2\zeta \omega T \right]^2}}$ & \\
+               	$\arg G=-\arctan  \frac{2\zeta \omega T}{(j\omega T)^2+1}$ & $0 \leq\omega T \leq 1$ & \\
+               	$\arg G=\arctan \frac{2\zeta \omega T}{(j \omega T)^2+1}-\pi$ & $1 \leq\omega T \leq \infty$ & \\
+	        	
+	        \end{tabular}
 			\\ \cline{2-3}
 			& \begin{minipage}{3cm}
 	        \includegraphics[angle = {-0.3}, width=3cm]{./bilder/PT2_Nyq.jpg}
@@ -115,24 +111,20 @@
 			%Tt_Glied
 			$T_t$ &
 	        \parbox[c][2cm]{3cm}{\input{./tikzBilder/TtGlied}}
-			& \begin{minipage}{12cm}
-              	$y=\begin{cases}
-  				0 & 0<t<T_t \\
-  				u(t-T_t) & t \geq T_t
-				\end{cases}$\\
-              	$u=1(t)$ \hspace{29.5mm} $y=1(t-T_t)$\\
-              	$G(j \omega)= e^{-j\omega T_t}$ \hspace{15mm}
-              	$\left| G \right| = 1$
-              	\hspace{30mm}
-              	$argG=-\omega T_t$\\
-              \end{minipage} \rule[-2mm]{0mm}{15mm}
+	        &
+	        \begin{tabular}{lll}
+	        	$y=\begin{cases}
+  					0 & 0<t<T_t \\
+  					u(t-T_t) & t \geq T_t
+					\end{cases}$ & & \\
+				$u=1(t)$ & $y=1(t-T_t)$ & \\
+				$G(j \omega)= e^{-j\omega T_t}$ & $\left| G \right| = 1$ & $argG=-\omega T_t$
+	        \end{tabular}
 			\\ \cline{2-3}
-			& \begin{minipage}{3cm}
-	        \includegraphics[angle = {0.2}, width=3cm]{./bilder/T_Nyq.jpg}
-	        \end{minipage}
-			& \begin{minipage}{12cm}
-	        \includegraphics[angle = {0.3}, width=8cm]{./bilder/T_Bode.jpg}
-	        \end{minipage} \rule[-5mm]{0mm}{35mm}
+			&
+			& 
+			\parbox[c]{3cm}{\input{./tikzBilder/TtGliedNyquist}}
+			\parbox[c]{6cm}{\input{./tikzBilder/TtGliedBode}}
 	        \\
 			\specialrule{2pt}{0pt}{0pt}
         \end{longtable}
