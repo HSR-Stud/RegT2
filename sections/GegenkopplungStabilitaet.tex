@@ -204,28 +204,17 @@
 		Linken\grqq\ liegt.
 		
 	\subsection{Phasenreserve und Verstärkungsreserve \formelbuch{132}}
-			\begin{minipage}{3.5cm}
-			\fbox{$K_R K_{Rres}=K_{R\pi}$}\\
-			\fbox{$K_{Rres}=\frac{1}{\left| G(j\omega_{\pi})\right|}$}\\
-			\fbox{$argG_0=-\pi+\Phi_{res}$}\\
-			\fbox{$argG_0(\omega_\pi)=-\pi$}\\
-			\fbox{$|G_0(j\omega_D)|=1$}\\
-			$K_R < K_{R\pi}$\\
-			$K_R > K_{R\pi}$	
-			\end{minipage}
-			\begin{minipage}{9cm}
-        	$K_R$: \hspace{5mm}Verstärkung des Reglers \\
-        	$K_{Rres}$: Verstärkungsreserve mit Regler (Amplitudenres., gain
-        	margin)\\ $K_{R\pi}$: kritische Verstärkung (Verstärkung ohne
-        	Regler)\\ $\omega_\pi$: Phasenschnittfrequenz \\
-        	$\omega_D$: Durchtrittsfrequenz \\
-        	$\Phi_{res}$: Phasenreserve \\ \\ \\
-        	Regelung stabil\\
-        	Regelung instabil
-        	\end{minipage}
-			\begin{minipage}{6.2cm}
-        		\includegraphics[width=6.2cm]{./bilder/phasenreserve.png}
-        	\end{minipage}
+		\begin{tabular}{l|ll}
+			$K_RK_{Rres}=K_{R\pi}$ & $K_R$ & Reglerverstärkung ($K_R < K_{R\pi} \rightarrow$ Regelung stabil, $K_R > K_{R\pi} \rightarrow$ Regelung
+			instabil	) \\
+			$K_{Rres}=\frac{1}{\left| G(j\omega_{\pi})\right|}$ & $K_{Rres}$ & 	Verstärkungsreserve mit Regler (Amplitudenres., gain margin) \\
+			$argG_0=-\pi+\Phi_{res}$ & $K_{R\pi}$ & kritische Verstärkung (Verstärkung ohne	Regler) \\
+			$argG_0(\omega_\pi)=-\pi$ & $\omega_\pi$ & Phasenschnittfrequenz\\
+			$|G_0(j\omega_D)|=1$ & $\omega_D$ & Durchtrittsfrequenz \\
+			& $\Phi_{res}$ & Phasenreserve
+		\end{tabular}
+		
+        \includegraphics[width=6.2cm]{./bilder/phasenreserve.png}
 			
 	\subsection{Sprungantwort und Stabilität \formelbuch{135}}
 		\subsubsection{Stabilitätssatz für ein System 2. Ordnung \formelbuch{137}}
