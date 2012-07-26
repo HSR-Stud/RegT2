@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+  \node (in) at (0,1) []{u};
+  \node (dot) at (1,1) [circle,draw]{};
+
+  \node (G1) at (3,2) [draw]{$G_1(s)$};
+  \node (G2) at (3,0) [draw]{$G_2(s)$};
+
+  \node (sum) at (5,1) [circle,draw]{+};
+  \node (out) at (6,1) []{y};
+
+
+  \draw[->] (in) -> (dot);
+ 
+  \draw[->] (dot) |-  (G1);
+  \draw[->] (G1) -| (sum);
+
+  \draw[->] (dot) |-  (G2);
+  \draw[->] (G2) -| (sum);
+
+  \draw[->](sum) -- (out);
+
+\end{tikzpicture}
