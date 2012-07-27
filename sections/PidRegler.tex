@@ -17,28 +17,15 @@
 		
 	
 	\subsection{$PT_2$-Glied \formelbuch{163}}
-		\begin{minipage}{5cm}
-        \fbox{$T_\omega = 2T_m=\frac{2\pi}{\omega_n \sqrt{1-\zeta
-        ^2}}=\frac{2\pi}{\omega}$}\\
-        \fbox{$\omega = \frac{2\pi}{T_\omega}=2\pi f$}
-        \end{minipage}
-		\begin{minipage}{13cm}
-        $T_\omega$: Schwingungsdauer\\
-        $\omega_n$: Kennkreisfrequenz\\
-        $\zeta$: \hspace{1.1mm} Dämpfungskonstante\\
-        \end{minipage}\\
-		\glqq Optimale Dämpfung\grqq\ bei $\Psi=45$ und $\zeta=\frac{1}{\sqrt{2}}$.
-		Dabei erreicht die Regelgrösse $y$ nach $4.3\%$ Überschwingen rasch den
-		Endwert.\\
-		\begin{minipage}{7cm}
-		$T^2\ddot{y}+2\zeta T \dot{y}+ y=Ku$\\
-		$\ddot{y}+2\zeta\omega_n\dot{y}+\omega_n^2=\omega_n^2 Ku$
-		\end{minipage}
-		\begin{minipage}{11cm}
-        $\ddot{y}+a_1\dot{y}+a_0 y=\ldots$\\
-        $a_1=2\zeta\omega_n$\\
-        $a_0=\omega_n^2$
-        \end{minipage}
+		\begin{tabular}{p{5cm}p{3cm}p{4cm}p{4cm}}
+			$T_\omega = 2T_m=\frac{2\pi}{\omega_n \sqrt{1-\zeta^2}}=\frac{2\pi}{\omega}$ & $\omega = \frac{2\pi}{T_\omega}=2\pi f$ &  $T_\omega$: Schwingungsdauer & $\omega_n$: Kennkreisfrequenz\\
+			& & $\zeta$:Dämpfungskonstante &
+		\end{tabular}
+
+		\textbf{Dämpfung:} Optimal bei $\Psi=45$ und $\zeta=\frac{1}{\sqrt{2}}$.
+		Dabei erreicht die Regelgrösse $y$ nach $4.3\%$ Überschwingen rasch den	Endwert.\\
+		\textbf{Berechnung $\zeta$:} Aus DGL $\ddot{y}+a_1\dot{y}+a_0 y=\ldots$ folgt $a_1=2\zeta\omega_n$, $a_0=\omega_n^2$ $\Rightarrow \xi=\frac{a_1}{2\sqrt{a_0}}$ \\
+		Weitere Formeln in der LTI-Grundglieder Tabelle
 	
 	\subsection{PI-Regler \formelbuch{174}}
 		\begin{minipage}{15cm}
