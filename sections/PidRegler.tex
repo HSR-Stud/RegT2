@@ -19,12 +19,19 @@
 	\subsection{$PT_2$-Glied \formelbuch{163}}
 		\begin{tabular}{p{5cm}p{3cm}p{4cm}p{4cm}}
 			$T_\omega = 2T_m=\frac{2\pi}{\omega_n \sqrt{1-\zeta^2}}=\frac{2\pi}{\omega}$ & $\omega = \frac{2\pi}{T_\omega}=2\pi f$ &  $T_\omega$: Schwingungsdauer & $\omega_n$: Kennkreisfrequenz\\
-			& & $\zeta$:Dämpfungskonstante &
+			& & $\zeta$:Dämpfungskonstante & $T_m$: Überschwingdauer
 		\end{tabular}
 
-		\textbf{Dämpfung:} Optimal bei $\Psi=45$ und $\zeta=\frac{1}{\sqrt{2}}$.
-		Dabei erreicht die Regelgrösse $y$ nach $4.3\%$ Überschwingen rasch den	Endwert.\\
-		\textbf{Berechnung $\zeta$:} Aus DGL $\ddot{y}+a_1\dot{y}+a_0 y=\ldots$ folgt $a_1=2\zeta\omega_n$, $a_0=\omega_n^2$ $\Rightarrow \xi=\frac{a_1}{2\sqrt{a_0}}$ \\
+		\subsubsection{Dämpfung}
+		Optimal bei $\Psi=45$ und $\zeta=\frac{1}{\sqrt{2}}$.
+		Dabei erreicht die Regelgrösse $y$ nach $4.3\%$ Überschwingen rasch den	Endwert.
+		\subsubsection{Berechnung $\zeta$}
+		Aus DGL $\ddot{y}+a_1\dot{y}+a_0 y=\ldots$ folgt $a_1=2\zeta\omega_n$, $a_0=\omega_n^2$ $\Rightarrow \xi=\frac{a_1}{2\sqrt{a_0}}$ \\
+		Mittels Überschwingweite kann $\zeta$ ebenfalls berechnet werden\\
+		\begin{tabular}{p{3cm}p{3cm}p{6cm}}
+			$\zeta = \frac{1}{\sqrt{1+(\frac{\pi}{c})^2}}$ & $c =ln(\frac{y_m}{y_{\infty}})$ & $y_m$: Überschwingweite
+		\end{tabular}
+
 		Weitere Formeln in der LTI-Grundglieder Tabelle
 	
 	\subsection{PI-Regler \formelbuch{174}}
