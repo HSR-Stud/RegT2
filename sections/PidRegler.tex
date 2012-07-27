@@ -35,14 +35,10 @@
 		Weitere Formeln in der LTI-Grundglieder Tabelle
 	
 	\subsection{PI-Regler \formelbuch{174}}
-		\begin{minipage}{15cm}
-        \includegraphics[angle={0},width=10cm]{./bilder/PI_Regler.jpg}
-        \end{minipage}\\ \\
-		\begin{minipage}{15cm}
-        \fbox{$G(j\omega)=K_R \frac{1+j\omega T_N}{j\omega T_N}$}\qquad
-        \fbox{$arg(G(j\omega))=\arctan(\omega T_N)-\frac{\pi}{2}$}
-        \end{minipage}
-		
+		\includegraphics[width=10cm]{./bilder/PI_Regler.jpg} \\
+		\fbox{$G(j\omega)=K_R \frac{1+j\omega T_N}{j\omega T_N}$}\qquad
+		\fbox{$arg(G(j\omega))=\arctan(\omega T_N)-\frac{\pi}{2}$}\qquad
+		\fbox{$|G(j\omega)| = \frac{K_R \sqrt{1+(\omega T_n)^2}}{T_n \omega}$}
 	
 	\subsection{D-Glied \formelbuch{179}}
 		Der Differenzierer erzeugt eis Korrektursignal im voraus.\\
@@ -50,7 +46,6 @@
 		hochfrequenten Störsignale durch die Ableitung verstärkt.\\
 		Ein LTI-System, welches ohne D-Glied darstellbar ist, gegebenenfalls durch
 		Umformung des Blockdiagramms, heisst realisierbar.
-	
 	
 	\subsection{PID-Regler \formelbuch{183} \formelbuch{383}}
 	\fbox{$G(s) = K_R(1 + \frac{1}{j \omega T_N} + j \omega T_V )$}
