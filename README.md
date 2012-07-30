@@ -2,7 +2,7 @@
 
 ## Verantwortlicher
 
-Jürg Rast
+[Jürg Rast](https://github.com/jrast)
 
 ## Plan und Lerninhalt
  * Gegenkopplung und Stabilität
