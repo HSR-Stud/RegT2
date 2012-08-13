@@ -5,8 +5,8 @@
 		Zusammenhang zwischen Fehler $e$ und Stellgrösse $u$.\\
 		Der P-Regler reagiert schnell, kann aber den Sprungfehler nicht vollständig
 		eliminieren. Er hat einen stationären Fehler.
-		
-	
+
+
 	\subsection{I-Regler \formelbuch{160}}
 		Der reine I-Regler ist allgemein ungünstig, weil er relativ langsam arbeitet
 		und die Stabilität schwächt. Ist aber die Regelstrecke nur erster Ordnung
@@ -14,8 +14,8 @@
 		Der I-Regler neigt zum Schwingen.\\
 		Bei sprungförmigen Signalen, d.h. für Festwertregelungen hat der I-Regler
 		keinen Fehler!
-		
-	
+
+
 	\subsection{$PT_2$-Glied \formelbuch{163}}
 		\begin{tabular}{p{5cm}p{3cm}p{4cm}p{4cm}}
 			$T_\omega = 2T_m=\frac{2\pi}{\omega_n \sqrt{1-\zeta^2}}=\frac{2\pi}{\omega}$ & $\omega = \frac{2\pi}{T_\omega}=2\pi f$ &  $T_\omega$: Schwingungsdauer & $\omega_n$: Kennkreisfrequenz\\
@@ -33,27 +33,27 @@
 		\end{tabular}
 
 		Weitere Formeln in der LTI-Grundglieder Tabelle
-	
+
 	\subsection{PI-Regler \formelbuch{174}}
 		\includegraphics[width=10cm]{./images/PI_Regler.jpg} \\
 		\fbox{$G(j\omega)=K_R \frac{1+j\omega T_N}{j\omega T_N}$}\qquad
 		\fbox{$arg(G(j\omega))=\arctan(\omega T_N)-\frac{\pi}{2}$}\qquad
 		\fbox{$|G(j\omega)| = \frac{K_R \sqrt{1+(\omega T_n)^2}}{T_n \omega}$}
-	
+
 	\subsection{D-Glied \formelbuch{179}}
 		Der Differenzierer erzeugt eis Korrektursignal im voraus.\\
 		Nachteilig ist, wenn die Regelgrösse verrauscht ist, dann werden die
 		hochfrequenten Störsignale durch die Ableitung verstärkt.\\
 		Ein LTI-System, welches ohne D-Glied darstellbar ist, gegebenenfalls durch
 		Umformung des Blockdiagramms, heisst realisierbar.
-	
+
 	\subsection{PID-Regler \formelbuch{183} \formelbuch{383}}
-	\fbox{$G(s) = K_R(1 + \frac{1}{j \omega T_N} + j \omega T_V )$}
-	
+		\fbox{$G(s) = K_R(1 + \frac{1}{j \omega T_N} + j \omega T_V )$}
+
 	\subsection{PD-Regler \formelbuch{187} \formelbuch{383}}
-	\fbox{$u=K_R at+K_R T_V a$} \qquad
-	Das PD-Glied entspricht dem inversen PT$_1$-Glied.
-	
+		\fbox{$u=K_R at+K_R T_V a$} \qquad
+		Das PD-Glied entspricht dem inversen PT$_1$-Glied.
+
 	\subsection{Empirische Einstellregeln \formelbuch{188}}
 		\includegraphics[width=13cm]{./images/Empirisch_Regeln.jpg}
 		\begin{minipage}[b]{5cm}
@@ -61,7 +61,7 @@
 		$G_0(j\omega)=\frac{K_s}{1+j\omega T_g}e^{-j\omega T_u}$
 		\vspace{2.7cm}
 		\end{minipage}\\
-		
+
 	\begin{tabular}{|l|p{1.8cm}|l|l|l|l||l|l|}
 	    \hline
 	    \multicolumn{6}{|c||}{
@@ -88,9 +88,9 @@
 		\multicolumn{2}{|c||}{\textbf{Störverhalten}} &
 		\textbf{Sprungantwort} & \textbf{Stabilitätsgrenze}
 		\\ \hline
-		& & kein $y_m$ & $\frac{y_m}{y_\infty} = 20 \%$ & kein $a$ & $\frac{a}{b}= 20 \%$ & & 
+		& & kein $y_m$ & $\frac{y_m}{y_\infty} = 20 \%$ & kein $a$ & $\frac{a}{b}= 20 \%$ & &
 		\\ \hline
-		P 	& $K_R$ 	& $0.3q$ 	& $0.7q$ 	& $0.3q$ 	& $0.7q$	& $q$ 	& $0.5K_{R\pi}$ 
+		P 	& $K_R$ 	& $0.3q$ 	& $0.7q$ 	& $0.3q$ 	& $0.7q$	& $q$ 	& $0.5K_{R\pi}$
 		\\ \hline
 		PI	& $K_R$		& $0.35q$	& $0.6q$	& $0.6q$	& $0.7q$	& $0.9q$ 	& $0.45K_{R\pi}$
 		\\
@@ -103,16 +103,16 @@
 			& $T_V$		& $0.5T_u$	& $0.47T_u$	& $0.42T_u$	& $0.42T_u$ & $0.5T_u$ 	& $0.125T_\pi$
 		\\ \hline
 	\end{tabular}
-	
-		
+
+
 	\subsection{Wind-Up \formelbuch{200}}
 		Die Folge eines \glqq wind-up-Phänomens\grqq\ ist einerseits ein konstanter
 		Fehler und anderseits eine verzögert reagierende und damit stark überschwingende
 		Regelgrösse.\\ \\
-		\underline{wind-up entsteht durch:}\\
+		\underline{wind-up entsteht durch:}
 		\begin{itemize}
-		\item bestehender Fehler
-		\item I-Anteil im Regler
-		\item Sättigung der Stellgrösse
+			\item bestehender Fehler
+			\item I-Anteil im Regler
+			\item Sättigung der Stellgrösse
 		\end{itemize}
-		
+
