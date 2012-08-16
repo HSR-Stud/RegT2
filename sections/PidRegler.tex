@@ -41,18 +41,24 @@
 		\fbox{$|G(j\omega)| = \frac{K_R \sqrt{1+(\omega T_n)^2}}{T_n \omega}$}
 
 	\subsection{D-Glied \formelbuch{179}}
-		Der Differenzierer erzeugt eis Korrektursignal im voraus.\\
+		Der Differenzierer erzeugt ein Korrektursignal im voraus.
 		Nachteilig ist, wenn die Regelgrösse verrauscht ist, dann werden die
 		hochfrequenten Störsignale durch die Ableitung verstärkt.\\
 		Ein LTI-System, welches ohne D-Glied darstellbar ist, gegebenenfalls durch
-		Umformung des Blockdiagramms, heisst realisierbar.
-
-	\subsection{PID-Regler \formelbuch{183} \formelbuch{383}}
-		\fbox{$G(s) = K_R(1 + \frac{1}{j \omega T_N} + j \omega T_V )$}
+		Umformung des Blockdiagramms, heisst realisierbar.  In der Realität wird
+		meistens kein reines D-Glied sondern ein $DT_1$-Glied verwendet:\\
+		\fbox{$G_{DT_1}(s) = \frac{s T_V}{1+ s T_C}$}
 
 	\subsection{PD-Regler \formelbuch{187} \formelbuch{383}}
-		\fbox{$u=K_R at+K_R T_V a$} \qquad
-		Das PD-Glied entspricht dem inversen PT$_1$-Glied.
+		Der PD-Regler entspricht dem inversen PT$_1$-Glied. Meistens wird jedoch
+		der $PDT_1$ Regler verwendet.\\
+		\fbox{$u=K_R at+K_R T_V a$} 
+		\fbox{$G_{PD}(s) = K_R (T_V s + 1) $}
+		\fbox{$G_{PDT_1}(s) = K_R \frac{1+s(T_V+T_C)}{1+sT_C}$}
+
+	\subsection{PID-Regler \formelbuch{183} \formelbuch{383}}
+		\fbox{$G_{PID}(s) = K_R \left(1 + \frac{1}{s T_N} + s T_V \right)$}
+		\fbox{$G_{PIDT_1}(s) = K_R \left(1 + \frac{1}{s T_N} + \frac{s T_V}{1+s T_C} \right)$}
 
 	\subsection{Empirische Einstellregeln \formelbuch{188}}
 		\includegraphics[width=13cm]{./images/Empirisch_Regeln.jpg}
