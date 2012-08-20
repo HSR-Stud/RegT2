@@ -5,7 +5,7 @@
         	{\bf Typ} & {\it Symbol} & {\it Gleichung, Dgl}\\
         	 & & {\it Sprungantwort}\\
         	 & & {\it Frequenzgang, Betrag und Argument}\\ \cline{2-3}
-        	 & & {\it Nyquistdiagramm} -- {\it Bodediagramm}\\
+        	 & Strukturbild & {\it Nyquistdiagramm} -- {\it Bodediagramm}\\
         	\specialrule{2pt}{0pt}{0pt}
         	
         	
@@ -18,7 +18,7 @@
 				$G(j \omega)=K$	& $\left| G \right| = K$	& $argG=0$ \\
 			\end{tabular} 
 			\\ \cline{2-3}
-			& 
+			& \parbox[c][2cm]{3cm}{\input{./tikz/PGliedStruktur}}
 			& 
 			\parbox[c]{3cm}{\input{./tikz/PGliedNyquist}} \quad
 			\parbox[c]{6cm}{\input{./tikz/PGliedBode}}			 
@@ -35,7 +35,7 @@
 				$G(j \omega)=\frac{K}{j\omega}$ & $\left| G \right| = \frac{K}{\omega}$ & $argG=-\frac{\pi}{2}$ \\
 			\end{tabular}
 			\\ \cline{2-3}
-			& 
+			& \parbox[c][2cm]{3cm}{\input{./tikz/IGliedStruktur}}
 			&
 			\parbox[c]{3cm}{\input{./tikz/IGliedNyquist}}
 			\parbox[c]{6cm}{\input{./tikz/IGliedBode}} 
@@ -52,7 +52,7 @@
 				$G(j \omega)=K j\omega$			& $\left| G \right| = K\omega$			& $argG=\frac{\pi}{2}$
 			\end{tabular}
 			\\ \cline{2-3}
-			&			
+			& \parbox[c][2cm]{3cm}{\input{./tikz/DGliedStruktur}}			
 			&
 			\parbox[c]{3cm}{\input{./tikz/DGliedNyquist}}
 			\parbox[c]{6cm}{\input{./tikz/DGliedBode}} 
@@ -70,7 +70,7 @@
 				$argG=-\arctan(\omega T)$
 			\end{tabular}
 			\\ \cline{2-3}
-			&
+			& \parbox[c][2cm]{3cm}{\input{./tikz/PT1GliedStruktur}}	
 			&
 			\parbox[c]{3.7cm}{\input{./tikz/PT1GliedNyquist}}
 			\parbox[c]{6cm}{\input{./tikz/PT1GliedBode}}
@@ -121,7 +121,7 @@
 				$G(j \omega)= e^{-j\omega T_t}$ & $\left| G \right| = 1$ & $argG=-\omega T_t$
 	        \end{tabular}
 			\\ \cline{2-3}
-			&
+			& \parbox[c][2cm]{3cm}{\input{./tikz/TtGliedStruktur}}
 			& 
 			\parbox[c]{3cm}{\input{./tikz/TtGliedNyquist}}
 			\parbox[c]{6cm}{\input{./tikz/TtGliedBode}}
