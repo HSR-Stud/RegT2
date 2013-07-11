@@ -1,9 +1,5 @@
 # RegT2E - Regelungstechnik 2
 
-## Verantwortlicher
-
-[Jürg Rast](https://github.com/jrast)
-
 ## Plan und Lerninhalt
  * Gegenkopplung und Stabilität
  * Frequenzgangdarstellungen nach Bode und Nyquist
@@ -12,10 +8,13 @@
 
 Da dieser Kurs ständig aktualisiert wird, sind Aenderungen jederzeit möglich.
 
-## Erlaubte Hilfsmittel bei der Prüfung
+## Erlaubte Hilfsmittel (nach MSP FS2013)
  * 2 Bücher
  * 10 A4-Seiten handgeschrieben oder kopiert
- * Taschenrechner (ohne WLAN-Features)
+ * *kein* Taschenrechner
+ 
+## Ausdruck
+* Zusammenfassung am Besten als A5-Booklet ausdrucken
 
 ## Lizenz
 Diese Zusammenfassung steht unter einer Creative Commons BY-NC-SA Lizenz.
