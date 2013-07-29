@@ -32,3 +32,5 @@ RegT2.pdf
 *.toc
 *.vrb
 *.xdy
+/RegT2.tcp
+/RegT2.tps

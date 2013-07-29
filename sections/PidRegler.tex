@@ -2,9 +2,10 @@
 
 	\subsection{P-Regler - Stationärer Zustand \formelbuch{155}}
 		Beim einfachsten linearen Regler, dem P-Typ, besteht ein proportionaler
-		Zusammenhang zwischen Fehler $e$ und Stellgrösse $u$.\\
+		Zusammenhang zwischen Fehler $e$ und Stellgrösse $u$.
 		Der P-Regler reagiert schnell, kann aber den Sprungfehler nicht vollständig
-		eliminieren. Er hat einen stationären Fehler.
+		eliminieren. Er hat einen stationären Fehler. Eine zu hohe Verstärkung $K_R$ führt
+    zu Rauschen.
 
 
 	\subsection{I-Regler \formelbuch{160}}
@@ -17,48 +18,103 @@
 
 
 	\subsection{$PT_2$-Glied \formelbuch{163}}
-		\begin{tabular}{p{5cm}p{3cm}p{4cm}p{4cm}}
-			$T_\omega = 2T_m=\frac{2\pi}{\omega_n \sqrt{1-\zeta^2}}=\frac{2\pi}{\omega}$ & $\omega = \frac{2\pi}{T_\omega}=2\pi f$ &  $T_\omega$: Schwingungsdauer & $\omega_n$: Kennkreisfrequenz\\
-			& & $\zeta$:Dämpfungskonstante & $T_m$: Überschwingdauer
-		\end{tabular}
+    \renewcommand{\arraystretch}{2}
+    \begin{tabular}{|m{7cm}|m{1cm}m{0.5cm}m{8cm}}
+      \cline{1-1}
+        $T_\omega = 2T_m=\dfrac{2\pi}{\omega_n \sqrt{1-\zeta^2}}=\dfrac{2\pi}{\omega}$ & &
+        $T_{\omega}$: & Schwingungsdauer \\
+      \cline{1-1}
+        $T_e = \dfrac{\ln\left(\epsilon\sqrt{1-\zeta^2}\right)}{-\omega_n\cdot\zeta} = 
+        \dfrac{1}{\sigma}\ln\left(\dfrac{\epsilon\omega}{\omega_n}\right)$ & &
+        $T_e$: & Einschwingzeit \\
+      \cline{1-1}  
+        $T_m = \dfrac{\pi}{\omega_n\sqrt{1-\zeta^2}}=\dfrac{\pi}{\omega}$ & &
+        $T_m$: & Überschwingungsdauer\\
+      \cline{1-1}  
+        $\omega = \dfrac{1}{T}\sqrt{1-\zeta^2}= \omega_n\sqrt{1-\zeta^2}=\dfrac{2\pi}{T_\omega}=2\pi f$ & &
+        $\omega$: & Kreisfrequenz \\
+      \cline{1-1}  
+        $\omega_n = \dfrac{1}{T}$ & &
+        $\omega_n$: & Kennkreisfrequenz \\
+      \cline{1-1}  
+        $\sigma = -\dfrac{\zeta}{T} = -\zeta\omega_n$ & &
+        $\zeta$: & Dämpfungskonstante \\
+      \cline{1-1}  
+        $\epsilon =  \dfrac{\Delta y}{y_{\infty}}$ & &
+        $\Delta y$: & Toleranzbereich der Amplitude im eingeschwungenen Zustand \\
+      \cline{1-1}
+    \end{tabular}
+    \renewcommand{\arraystretch}{1}
 
 		\subsubsection{Dämpfung}
 		Optimal bei $\Psi=45$ und $\zeta=\frac{1}{\sqrt{2}}$.
 		Dabei erreicht die Regelgrösse $y$ nach $4.3\%$ Überschwingen rasch den	Endwert.
-		\subsubsection{Berechnung $\zeta$}
-		Aus DGL $\ddot{y}+a_1\dot{y}+a_0 y=\ldots$ folgt $a_1=2\zeta\omega_n$, $a_0=\omega_n^2$ $\Rightarrow \zeta=\frac{a_1}{2\sqrt{a_0}}$ \\
-		Mittels Überschwingweite kann $\zeta$ ebenfalls berechnet werden\\
-		\begin{tabular}{p{3cm}p{3cm}p{6cm}}
-			$\zeta = \frac{1}{\sqrt{1+(\frac{\pi}{c})^2}}$ & $c =ln(\frac{y_m}{y_{\infty}})$ & $y_m$: Überschwingweite
-		\end{tabular}
+		
+    \subsubsection{Berechnung $\zeta$}
+      Aus DGL $\ddot{y}+a_1\dot{y}+a_0 y=\ldots$ folgt $a_1=2\zeta\omega_n$, 
+      $a_0=\omega_n^2$ $\Rightarrow \zeta=\frac{a_1}{2\sqrt{a_0}}$ \\
+      Mittels Überschwingweite kann $\zeta$ ebenfalls berechnet werden\\
+      \begin{tabular}{p{3cm}p{3cm}p{6cm}}
+        $\zeta = \frac{1}{\sqrt{1+(\frac{\pi}{c})^2}}$ & $c =ln(\frac{y_m}{y_{\infty}})$ & $y_m$: Überschwingweite
+      \end{tabular}
 
 		Weitere Formeln in der LTI-Grundglieder Tabelle
 
 	\subsection{PI-Regler \formelbuch{174}}
-		\includegraphics[width=10cm]{./images/PI_Regler.jpg} \\
-		\fbox{$G(j\omega)=K_R \frac{1+j\omega T_N}{j\omega T_N}$}\qquad
-		\fbox{$arg(G(j\omega))=\arctan(\omega T_N)-\frac{\pi}{2}$}\qquad
-		\fbox{$|G(j\omega)| = \frac{K_R \sqrt{1+(\omega T_n)^2}}{T_n \omega}$}
+    \begin{tabular}{m{10cm}m{8cm}}
+      \includegraphics[width=10cm]{./images/PI_Regler.jpg} &
+      {\fbox{$G(j\omega)=K_R \dfrac{1+j\omega T_N}{j\omega T_N}$} \newline
+       \fbox{$arg(G(j\omega))=\arctan(\omega T_N)-\dfrac{\pi}{2}$}\newline
+       \fbox{$|G(j\omega)| = \dfrac{K_R \sqrt{1+(\omega T_n)^2}}{T_n \omega}$}
+      \vfill
+      }
+    \end{tabular}
 
-	\subsection{D-Glied \formelbuch{179}}
+
+	\subsection{D-Glied \formelbuch{179/183}}
 		Der Differenzierer erzeugt ein Korrektursignal im voraus.
 		Nachteilig ist, wenn die Regelgrösse verrauscht ist, dann werden die
 		hochfrequenten Störsignale durch die Ableitung verstärkt.\\
 		Ein LTI-System, welches ohne D-Glied darstellbar ist, gegebenenfalls durch
 		Umformung des Blockdiagramms, heisst realisierbar.  In der Realität wird
 		meistens kein reines D-Glied sondern ein $DT_1$-Glied verwendet:\\
-		\fbox{$G_{DT_1}(s) = \frac{s T_V}{1+ s T_C}$}
+		\fbox{$G_{DT_1}(s) = \frac{s T_V}{1+ s T_C}$} \\
+    \begin{tabular}{|l||lll|}
+      \hline
+        \parbox[c][2cm]{3cm}{\input{./tikz/DSymbol}} &
+        \parbox[c][2cm]{4.5cm}{\input{./tikz/DT1GliedBlockdiagramm}} &
+        $\Rightarrow$ &
+        \parbox[c][2cm]{3cm}{\input{./tikz/DT1GliedStruktur}}\\
+        $D$-Glied &
+        $D$-Glied \qquad $PT_1$-Glied & &
+        $DT_1$-Glied \\
+      \hline
+    \end{tabular}
+    
+    
 
-	\subsection{PD-Regler \formelbuch{187} \formelbuch{383}}
-		Der PD-Regler entspricht dem inversen PT$_1$-Glied. Meistens wird jedoch
-		der $PDT_1$ Regler verwendet.\\
-		\fbox{$u=K_R at+K_R T_V a$} 
-		\fbox{$G_{PD}(s) = K_R (T_V s + 1) $}
-		\fbox{$G_{PDT_1}(s) = K_R \frac{1+s(T_V+T_C)}{1+sT_C}$}
+	\subsection{PD-Regler \formelbuch{187/383}}
+    \begin{tabular}{m{10cm}m{8cm}}
+      \includegraphics[width=10cm]{./images/PD_Regler.png} &
+      {
+        Der PD-Regler entspricht dem inversen PT$_1$-Glied. Meistens wird jedoch
+        der $PDT_1$ Regler verwendet.\newline
+        \fbox{$u=K_R at+K_R T_V a$} \newline
+        \fbox{$y = K_R \left(1+\dfrac{T_V}{T_C}\cdot \e^{-\dfrac{t}{T_C}}\right)$} \newline
+        \fbox{$G_{PDT_1}(s) = K_R \dfrac{1+s(T_V+T_C)}{1+sT_C}$}
+      }
+    \end{tabular}
+ 
 
-	\subsection{PID-Regler \formelbuch{183} \formelbuch{383}}
-		\fbox{$G_{PID}(s) = K_R \left(1 + \frac{1}{s T_N} + s T_V \right)$}
-		\fbox{$G_{PIDT_1}(s) = K_R \left(1 + \frac{1}{s T_N} + \frac{s T_V}{1+s T_C} \right)$}
+	\subsection{PID-Regler \formelbuch{183/383}}
+    \begin{tabular}{m{10cm}m{8cm}}
+      \includegraphics[width=10cm]{./images/PID_Regler.png} &
+      {
+        \fbox{$G_{PID}(s) = K_R \left(1 + \frac{1}{s T_N} + s T_V \right)$}
+        \fbox{$G_{PIDT_1}(s) = K_R \left(1 + \frac{1}{s T_N} + \frac{s T_V}{1+s T_C} \right)$}
+      }
+    \end{tabular}
+		
 
 	\subsection{Empirische Einstellregeln \formelbuch{188}}
 		\includegraphics[width=13cm]{./images/Empirisch_Regeln.jpg}
@@ -109,7 +165,39 @@
 			& $T_V$		& $0.5T_u$	& $0.47T_u$	& $0.42T_u$	& $0.42T_u$ & $0.5T_u$ 	& $0.125T_\pi$
 		\\ \hline
 	\end{tabular}
+  
+  Empirisch Einstellregeln ergeben praktisch nicht immer das bestmögliche Zeitverhalten,
+  sondern sie liefern eine erste Einstellung, welche experimentell noch verbessert werden kann.
 
 
 	\subsection{Wind-Up \formelbuch{200}}
+  \begin{tabular}{lp{15cm}}
+    \textbf{Definition:} &
+    Der Fehler $e$ am Integratoreingang bleibt konstant, sodass dessen
+    Ausgangssignal ständig zunimmt. \\
+    
+    \textbf{Folge:} & 
+    Einerseits ein konstanter Fehler und andererseits eine verzögert reagierende
+    und damit stark überschwingende Regelgrösse $y$.
+  \end{tabular}
+
+  \begin{multicols}{2}
+    \textbf{Ursachen für Wind-Up:}
+    \begin{itemize}[leftmargin=*]
+      \item I-Anteil
+      \item Sättigung am Regler Ausgang
+      \item $e(t)$ über "`längere Zeit"' $\neq 0$ ist.
+    \end{itemize}
+  
+  \columnbreak
+    
+    \textbf{Anti-Wind-Up:}
+    \begin{itemize}[leftmargin=*]
+      \item Integration beschränken
+    \end{itemize}
+  
+  
+  \end{multicols}
+  
+  
 
