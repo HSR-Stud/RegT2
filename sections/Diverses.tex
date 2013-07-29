@@ -1,24 +1,61 @@
 \section{Diverses}
-    \subsection{Von $G(s)$ zur DGL}
-    	\begin{multicols}{2}
-    		\begin{itemize}
-  				\item $G(s)$ als Bruch aufschreiben.
-  				\item Zähler = Eingang ($u$) \quad Nenner = Ausgang ($y$)
-  				\item $j\omega = \dot{y} \quad (j\omega)^2 = \ddot{y} \quad \ldots $
-  				\item Gleiches gillt für den Zähler mit u!
-			\end{itemize}
-			\columnbreak
-			\textbf{Beispiel:} $G(s) = \frac{K(j \omega T + 1)}{(j\omega)^2 T_N + j \omega Tn(1+K_R) + K_R}$ \\			
-			\textbf{DGL:} $T_N \ddot{y} + T_N(1+K_R) \dot{y} + K_R y = K(T \dot{u} + u)$
-    	\end{multicols}    	
+
+\subsection{Von $G(s)$ zur DGL}
+  \begin{multicols}{2}
+    \begin{itemize}
+      \item $G(s)$ als Bruch aufschreiben.
+			\item Zähler = Eingang ($u$) \quad Nenner = Ausgang ($y$)
+ 			\item $j\omega = \dot{y} \quad (j\omega)^2 = \ddot{y} \quad \ldots $
+ 			\item Gleiches gillt für den Zähler mit u!
+		\end{itemize}
+	\columnbreak
+		\textbf{Beispiel:} $G(s) = \frac{K(j \omega T + 1)}{(j\omega)^2 T_N + j \omega Tn(1+K_R) + K_R}$ \\			
+		\textbf{DGL:} $T_N \ddot{y} + T_N(1+K_R) \dot{y} + K_R y = K(T \dot{u} + u)$
+  \end{multicols}    	
     
-    \subsection{Zeigerdiagramme}
-    Soll zu einem Gegebenen Blockschaldbild (oder einer gegebenen Funktion) das Zeigerdiagramm erstellt 
-    werden werden die \textbf{Beträge} der Elemente \textbf{multipliziert},
-    die \textbf{Winkel} ($arg()$) \textbf{addiert}. Die Werte für die einzelnen Elemente sind der Tabelle in 1. LTI-Grundglieder zu entnehmen. 
+\subsection{Zeigerdiagramme}
+  Soll zu einem Gegebenen Blockschaldbild (oder einer gegebenen Funktion) das Zeigerdiagramm erstellt 
+  werden werden die \textbf{Beträge} der Elemente \textbf{multipliziert},
+  die \textbf{Winkel} ($arg()$) \textbf{addiert}. Die Werte für die einzelnen Elemente sind der Tabelle in 1. LTI-  
+  Grundglieder zu entnehmen. 
 
+\begin{multicols}{2}
+  \subsection{Graphisch Phasen-/Verstärkungsreserve}
+    \includegraphics[width=7cm]{./images/bode-stabilitaet.png} \\
+    Phasen-/Verstärkungsreserve = Phasen-/Amplitudenrand
+    
+\columnbreak
 
-	\subsection{Graphisch Phasen-/Verstärkungsreserve}
-		\includegraphics[width=7cm]{./images/bode-stabilitaet.png} \\
-		Phasen-/Verstärkungsreserve = Phasen-/Amplitudenrand
+  \subsection{Störgrössenaufschaltung \formelbuch{204}}
+    Bei der Strögrössenaufschaltung wird auch die Hauptstörung (Last) gemessen und verarbeitet.\\
+    \textbf{Merkmale:}
+    \begin{itemize}[leftmargin=*]
+      \item Hauptstörung wird früher erkannt, was die Regelgeschwindigkeit stark verbessert.
+      \item Für die Genauigkeit sorgt weiterhin der Regelkreis. Weitere Störungen werden damit auskorrigiert.
+      \item Das Führungsverhalten wird druch die Strögrössenaufschaltung nicht beeinflusst. Somit auch nicht
+            die Stabilität der Regelung.
+      \item Die Zeitverzögerung zwischen Störort und Aufschaltort soll gering sein.
+    \end{itemize}
+\end{multicols}
 
+\subsection{Kaskadenregelung \formelbuch{205}}
+  Die Kaskadenregelung besitzt einen oder mehrere unterlagerte Regelkreise.\\
+  \begin{itemize}
+    \item Die Hauptstörung, welche oft am Anfang der Strecke angreift, wird rascher erkannt und kann
+          schneller auskorrigiert werden.
+    \item Die Dynamik wird verbessert.
+    \item Die positiven Nebenwirkungen der inneren Regelung, wie Linearisierung der Strecke
+          und Reduktion der Parameterempfindlichkeit, sind erwünscht.
+    \item Die Kaskadenregelung vereinfacht die Regler und erleichtert ihre Einstellung.
+  \end{itemize}
+
+\subsection{diskreter PID \formelbuch{244}}
+  Grundaufgaben eines diskreten PID:
+  \begin{itemize}
+    \item Erfassen der Regelgrösse über die Messeinrichtung (AD-Wandlung)
+    \item Fehler bestimmen durch Vergleich
+    \item Korrektur berechnen
+    \item Korrektur am Prozess über die Stelleinrichtung vornehmen (DA-Wandlung)
+  \end{itemize}
+
+\input{sections/BodeApproximation}	
