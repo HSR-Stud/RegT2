@@ -81,7 +81,7 @@
 
 		Weitere Formeln in der LTI-Grundglieder Tabelle
   \end{multicols}
-
+  
 	\subsection{PI-Regler \formelbuch{174}}
     \begin{tabular}{m{10cm}m{8cm}}
       \includegraphics[width=10cm]{./images/PI_Regler.jpg} &
@@ -145,7 +145,7 @@
       {
         \fbox{$G_{PIDT_1}(s) = K_R \frac{1+sT_N}{s T_N} \frac{1 + s(T_V + T_C)}{1+s T_C}$} \newline
         $e(t) = 1(t) \rightarrow u(t) = K_R \left[ 1 + \frac{T_V}{T_N} +\frac{t}{T_N} + \left( \frac{T_V}{T_C}-\frac{T_V}{T_B}\right)e^{-\frac{t}{T_C}}\right]$
-      }
+      }      
       \\
       \multicolumn{2}{c}{Praktisch ist: $T_N \leq T_V > T_C$}
       \\
@@ -202,8 +202,11 @@
 		\\ \hline
 	\end{tabular}
   
-  Empirisch Einstellregeln ergeben praktisch nicht immer das bestmögliche Zeitverhalten,
-  sondern sie liefern eine erste Einstellung, welche experimentell noch verbessert werden kann.
+  \parbox{5cm}{$\Rightarrow \boxed{T_C = T_V\dfrac{1}{4 \ldots \text{bis } 50}}$}
+  \parbox{14cm}{Empirisch Einstellregeln ergeben praktisch nicht immer das bestmögliche Zeitverhalten,
+  sondern sie liefern eine erste Einstellung, welche experimentell noch verbessert werden kann.} \\ \\
+  
+  Um Ausschläge im Stellsignal, welche durch die typische Reaktion eines $DT_1$ auf einen Sprung verursacht werden, zu verhindern, darf man die Führungsgrösse r nicht über den Differenzierer leiten. Dies wird mit der Reglerstruktur auf S. 194 erreicht. 
 
 
 	\subsection{Wind-Up \formelbuch{200}}
