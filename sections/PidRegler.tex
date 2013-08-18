@@ -17,20 +17,30 @@
 		keinen Fehler!
 
 
-	\subsection{$PT_2$-Glied \formelbuch{163}}
+	\subsection{PT$_2$-Glied \formelbuch{163}}
+	\subsubsection{Parameter der Sprungantwort}
     \renewcommand{\arraystretch}{2}
     \begin{tabular}{|m{7cm}|m{1cm}m{0.5cm}m{8cm}}
       \cline{1-1}
+      $y_{\infty} =A \cdot K$ & &
+      $y_{\infty}$: & Grenzwert\\
+      \cline{1-1}  
         $T_\omega = 2T_m=\dfrac{2\pi}{\omega_n \sqrt{1-\zeta^2}}=\dfrac{2\pi}{\omega}$ & &
         $T_{\omega}$: & Schwingungsdauer \\
       \cline{1-1}
-        $T_e = \dfrac{\ln\left(\epsilon\sqrt{1-\zeta^2}\right)}{-\omega_n\cdot\zeta} = 
-        \dfrac{1}{\sigma}\ln\left(\dfrac{\epsilon\omega}{\omega_n}\right)$ & &
+      	$\varepsilon = \frac{\Delta y}{y_{\infty}}$ & &
+      	$\varepsilon$: & Verhältnis von Überschwinger nach $T_e$ zum Endwert\\
+      \cline{1-1}  
+        $T_e = \dfrac{\ln\left(\varepsilon\sqrt{1-\zeta^2}\right)}{-\omega_n\cdot\zeta} = 
+        \dfrac{1}{\sigma}\ln\left(\dfrac{\varepsilon\omega}{\omega_n}\right)$ & &
         $T_e$: & Einschwingzeit \\
       \cline{1-1}  
         $T_m = \dfrac{\pi}{\omega_n\sqrt{1-\zeta^2}}=\dfrac{\pi}{\omega}$ & &
         $T_m$: & Überschwingungsdauer\\
       \cline{1-1}  
+      	$y_m = y_{\infty} \cdot e^{\frac{-\pi\cdot\zeta}{\sqrt{1-\zeta^2}}}$ & &
+        $y_m$: & Überschwingweite\\
+       \cline{1-1}  
         $\omega = \dfrac{1}{T}\sqrt{1-\zeta^2}= \omega_n\sqrt{1-\zeta^2}=\dfrac{2\pi}{T_\omega}=2\pi f$ & &
         $\omega$: & Kreisfrequenz \\
       \cline{1-1}  
@@ -40,15 +50,21 @@
         $\sigma = -\dfrac{\zeta}{T} = -\zeta\omega_n$ & &
         $\zeta$: & Dämpfungskonstante \\
       \cline{1-1}  
-        $\epsilon =  \dfrac{\Delta y}{y_{\infty}}$ & &
+        $\varepsilon =  \dfrac{\Delta y}{y_{\infty}}$ & &
         $\Delta y$: & Toleranzbereich der Amplitude im eingeschwungenen Zustand \\
       \cline{1-1}
+      	$\delta = \ln{\Bigg(\frac{y_i}{y_{i+1}}\Bigg)} = \frac{2\pi \zeta}{\sqrt{1-\zeta^2}}$ & &
+        $\delta$: & Logarithmisches Dekrement\\
+      \cline{1-1}  
     \end{tabular}
     \renewcommand{\arraystretch}{1}
-
-		\subsubsection{Dämpfung}
-		Optimal bei $\Psi=45$ und $\zeta=\frac{1}{\sqrt{2}}$.
-		Dabei erreicht die Regelgrösse $y$ nach $4.3\%$ Überschwingen rasch den	Endwert.
+	
+	\subsubsection{Sprungantwort}
+	\includegraphics[scale=0.8]{./images/pt2StepResp.pdf}
+	
+	\subsubsection{Dämpfung}
+	Optimal bei $\Psi=45$ und $\zeta=\frac{1}{\sqrt{2}}$.
+	Dabei erreicht die Regelgrösse $y$ nach $4.3\%$ Überschwingen rasch den	Endwert.
 		
     \subsubsection{Berechnung $\zeta$}
       Aus DGL $\ddot{y}+a_1\dot{y}+a_0 y=\ldots$ folgt $a_1=2\zeta\omega_n$, 
