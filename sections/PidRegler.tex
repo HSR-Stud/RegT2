@@ -85,45 +85,49 @@
 	\subsection{PI-Regler \formelbuch{174}}
     \begin{tabular}{m{10cm}m{8cm}}
       \includegraphics[width=10cm]{./images/PI_Regler.jpg} &
-      {\fbox{$G(j\omega)=K_R \dfrac{1+j\omega T_N}{j\omega T_N}$} \newline
+      {$u(t) = A \cdot K_R\left( 1 + \frac{t}{T_N}\right)$, wenn $e(t) = A \cdot 1(t)$ \newline
+       \fbox{$G(j\omega)=K_R \dfrac{1+j\omega T_N}{j\omega T_N}$} \newline
        \fbox{$arg(G(j\omega))=\arctan(\omega T_N)-\dfrac{\pi}{2}$}\newline
-       \fbox{$|G(j\omega)| = \dfrac{K_R \sqrt{1+(\omega T_n)^2}}{T_n \omega}$}
+       \fbox{$|G(j\omega)| = \dfrac{K_R \sqrt{1+(\omega T_n)^2}}{\omega T_n}$}
       \vfill
       }
     \end{tabular}
 
 
-	\subsection{D-Glied \formelbuch{179/183}}
+	\subsection{D-Glied  / $\text{DT}_1$-Glied \formelbuch{179/183}}
 		Der Differenzierer erzeugt ein Korrektursignal im voraus.
 		Nachteilig ist, wenn die Regelgrösse verrauscht ist, dann werden die
 		hochfrequenten Störsignale durch die Ableitung verstärkt.\\
 		Ein LTI-System, welches ohne D-Glied darstellbar ist, gegebenenfalls durch
 		Umformung des Blockdiagramms, heisst realisierbar.  In der Realität wird
-		meistens kein reines D-Glied sondern ein $DT_1$-Glied verwendet:\\
-		\fbox{$G_{DT_1}(s) = \frac{s T_V}{1+ s T_C}$} \\
-    \begin{tabular}{|l||lll|}
-      \hline
+		meistens kein reines D-Glied sondern ein $DT_1$-Glied verwendet:\\ \\
+    \begin{tabular}{|l||lll| l}
+      \cline{1-4}
         \parbox[c][2cm]{3cm}{\input{./tikz/DSymbol}} &
         \parbox[c][2cm]{4.5cm}{\input{./tikz/DT1GliedBlockdiagramm}} &
         $\Rightarrow$ &
-        \parbox[c][2cm]{3cm}{\input{./tikz/DT1GliedStruktur}}\\
+        \parbox[c][2cm]{3cm}{\input{./tikz/DT1GliedStruktur}} &
+        \fbox{$G_{DT_1}(s) = \frac{j\omega T_V}{1+ j\omega T_C} = \frac{T_V}{T_C}\left(1- \frac{1}{1+j\omega T_C} \right) $}
+        \\
         $D$-Glied &
         $D$-Glied \qquad $PT_1$-Glied & &
         $DT_1$-Glied \\
-      \hline
+      \cline{1-4}
     \end{tabular}
     
     
 
 	\subsection{PD-Regler \formelbuch{187/383}}
     \begin{tabular}{m{10cm}m{8cm}}
-      \includegraphics[width=10cm]{./images/PD_Regler.png} &
+      {
+        \includegraphics[width=10cm]{./images/PD_Regler.png}     \newline 
+        Rampenantwort: $u(t) = K_R at+K_R T_V a$, wenn $ e(t) = a\cdot t$
+      }&
       {
         Der PD-Regler entspricht dem inversen PT$_1$-Glied. Meistens wird jedoch
         der $PDT_1$ Regler verwendet.\newline
-        \fbox{$u=K_R at+K_R T_V a$} \newline
-        \fbox{$y = K_R \left(1+\dfrac{T_V}{T_C}\cdot \e^{-\dfrac{t}{T_C}}\right)$} \newline
-        \fbox{$G_{PDT_1}(s) = K_R \dfrac{1+s(T_V+T_C)}{1+sT_C}$}
+        Sprungantwort: \parbox{5cm}{$u(t) = K_R \left(1+\dfrac{T_V}{T_C}\cdot \e^{-\dfrac{t}{T_C}}\right)$, wenn $e(t) = 1(t)$} \newline
+        \fbox{$G_{PDT_1}(j\omega) = K_R \dfrac{1+j\omega(T_V+T_C)}{1+j\omega T_C}$} \quad $T_V > T_C$
       }
     \end{tabular}
  
