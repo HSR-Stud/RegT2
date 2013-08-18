@@ -1,4 +1,5 @@
 \section{Umformungen}
+ \begin{multicols}{2}
 	\subsection{Serielle Systeme}
 		\input{tikz/SystemSeriell}
 		$G(s) = G_1(s) \cdot G_2(s)$
@@ -6,15 +7,13 @@
 		\input{tikz/SystemParallel}
 		$G(s) = G_1(s) + G_2(s)$
 	\subsection{Zwei Systeme mit Rückkopplung}
-		\begin{multicols}{2}
 		\input{tikz/SystemRueckkopplung}\newline
-		$G(s) = \frac{G_1(s)}{1 \mp G_1(s) G_2(s)}$ Vorzeichenwechsel!
-		\columnbreak
+		$G(s) = \frac{G_1(s)}{1 \mp G_1(s) G_2(s)}$ Vorzeichenwechsel! \\
 		
 		\input{tikz/SystemRueckkopplung2}\newline
 		$G(s) = G_1(s) \cdot \frac{1}{1 \mp G_2(s)}$ Vorzeichenwechsel!
 		
-		\end{multicols}
+  \end{multicols}
 	\subsection{Komplexeres Beispiel}
 		\input{tikz/SystemKomplex}
 		$G(s) = G_1(s) \cdot \frac{G_2(s)}{1-G_2(s) \cdot G_3(s)} \cdot G_4(s)$
