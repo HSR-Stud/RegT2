@@ -238,7 +238,7 @@
 			instabil	) \\
 			$K_{Rres}=\frac{1}{\left| G_o(j\omega_{\pi})\right|}$ & $K_{Rres}$ & 	Verstärkungsreserve mit Regler (Amplitudenres., gain margin) $\geq 4$ (praktisch) \\
 			$K_{R\pi} = K_R \cdot \frac{1}{|G_o(j\omega_\pi)|}$ & $K_{R\pi}$ & kritische Verstärkung (Verstärkung ohne Regler) \\
-			$argG_0(\omega_D)=-\pi+\Phi_{res}$ & $\omega_\pi$ & Phasenschnittfrequenz\\
+			$argG_o(\omega_D)=-\pi+\Phi_{res}$ & $\omega_\pi$ & Phasenschnittfrequenz\\
 			$|G_o(j\omega_D)|=1$ & $\omega_D$ & Durchtrittsfrequenz \\
 			$argG_o(\omega_\pi)=-\pi$ & $\Phi_{res}$ & Phasenreserve (phase margin) $\Rightarrow 45^{\circ} \leq \Phi_{res} \leq 70^{\circ}$
 		\end{tabular}
@@ -250,7 +250,7 @@
 			\textbf{Geg:} $\Phi_{res}$
 			\begin{enumerate}
 				\item Mit $argG_o(\omega_D) = -\pi + \Phi_{res} \rightarrow$ Durchtrittsfrequenz bestimmen.
-				\item Mit $G_o(j\omega_D) = 1 \rightarrow$  Nach $K_{R}$ auflösen 
+				\item Mit $|G_o(j\omega_D)| = 1 \rightarrow$  Nach $K_{R}$ auflösen 
 			\end{enumerate}
 			\vspace{0.5cm}
 			\textbf{Geg:} $K_{Rres}$
@@ -268,7 +268,7 @@
 			$\ddot{y}+a_1\dot{y}+a_0y=F(u)$ \\
 			Für $a_0 = 0$ und $a_1 > 0$ enthält der Prozess ein reines I-Glied und
 			ist somit ein Prozess ohne Ausgleich.  \\ \\
-			Bei LTI-Systemen höherer Ordnung genügt dieser Satz nicht. Er ist dabei notwendig, daher müssen alle Koeffizienten vorhanden und positiv sein. Jedoch ist dies nicht hinreichend!
+			Bei LTI-Systemen höherer Ordnung genügt dieser Satz nicht. Er ist jedoch notwendig, daher müssen alle Koeffizienten vorhanden und positiv sein. Jedoch ist dies nicht hinreichend!
 			
 		\subsubsection{Stabilitätssatz für die Sprungantwort}
 			Ein LTI-System ist genau dann stabil, wenn die Sprungantwort einem

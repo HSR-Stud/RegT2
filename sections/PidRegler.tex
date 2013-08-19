@@ -107,7 +107,7 @@
         \parbox[c][2cm]{4.5cm}{\input{./tikz/DT1GliedBlockdiagramm}} &
         $\Rightarrow$ &
         \parbox[c][2cm]{3cm}{\input{./tikz/DT1GliedStruktur}} &
-        \fbox{$G_{DT_1}(s) = \frac{j\omega T_V}{1+ j\omega T_C} = \frac{T_V}{T_C}\left(1- \frac{1}{1+j\omega T_C} \right) $}
+        \fbox{$G_{DT_1}(j\omega) = \frac{j\omega T_V}{1+ j\omega T_C} = \frac{T_V}{T_C}\left(1- \frac{1}{1+j\omega T_C} \right) $}
         \\
         $D$-Glied &
         $D$-Glied \qquad $PT_1$-Glied & &
@@ -144,7 +144,7 @@
       } & 
       {
         \fbox{$G_{PIDT_1}(s) = K_R \frac{1+sT_N}{s T_N} \frac{1 + s(T_V + T_C)}{1+s T_C}$} \newline
-        $e(t) = 1(t) \rightarrow u(t) = K_R \left[ 1 + \frac{T_V}{T_N} +\frac{t}{T_N} + \left( \frac{T_V}{T_C}-\frac{T_V}{T_B}\right)e^{-\frac{t}{T_C}}\right]$
+        $e(t) = 1(t) \rightarrow u(t) = K_R \left[ 1 + \frac{T_V}{T_N} +\frac{t}{T_N} + \left( \frac{T_V}{T_C}-\frac{T_V}{T_N}\right)e^{-\frac{t}{T_C}}\right]$
       }      
       \\
       \multicolumn{2}{c}{Praktisch ist: $T_N \leq T_V > T_C$}
