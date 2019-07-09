@@ -1,8 +1,9 @@
 \section{Gegenkopplung und Stabilität \formelbuch{107}}
-	\subsection{LTI-Grundglieder \formelbuch{124 \& 379}}	
+	\subsection{LTI-Grundglieder \formelbuch{124 \& 379}}
+	\label{subsec:LTI-Grundglieder}	
 		\begin{longtable}{|c|c|l|}
         	\specialrule{2pt}{0pt}{0pt}
-        	{\bf Typ} & {\it Symbol} & {\it Gleichung, Dgl}\\
+        	{\bf Typ} & {\it Symbol} & {\it Gleichung, DGL}\\
         	 & & {\it Sprungantwort}\\
         	 & & {\it Frequenzgang, Betrag und Argument}\\ \cline{2-3}
         	 & Strukturbild & {\it Nyquistdiagramm} -- {\it Bodediagramm}\\
@@ -33,7 +34,7 @@
 				$\dot{y} = Ku$ 					
 				& \multicolumn{2}{l}{$y = K \int\limits_{0}^{t}u(\tau)\;d\tau \qquad y(0) = 0 \qquad [K] = sec^{-1}$}										\\
 				$u=1(t)$ 						& $y=K t$ 								& \\
-				$G(j \omega)=\frac{K}{j\omega}$ & $\left| G \right| = \frac{K}{\omega}$ & $argG=-\frac{\pi}{2}$ \\
+				$G(j \omega)=\frac{K}{j\omega}$ & $\left| G \right| = \frac{K}{\omega}$ & $arg(G)=-\frac{\pi}{2}$ \\
 			\end{tabular}
 			\\ \cline{2-3}
 			& \parbox[c][2cm]{3cm}{\input{./tikz/IGliedStruktur}}
@@ -51,7 +52,7 @@
 				$y = K\dot{u}$					
 				&	$[K] =sec$					& \\
 				$u=1(t)$						& $y=K \delta (t)$						& \\
-				$G(j \omega)=K j\omega$			& $\left| G \right| = K\omega$			& $argG=\frac{\pi}{2}$
+				$G(j \omega)=K j\omega$			& $\left| G \right| = K\omega$			& $arg(G)=\frac{\pi}{2}$
 			\end{tabular}
 			\\ \cline{2-3}
 			& \parbox[c][2cm]{3cm}{\input{./tikz/DGliedStruktur}}			
@@ -72,7 +73,7 @@
 				$T\dot{y}+y=Ku$							& $y(0)=0$									& \\
 				$u=1(t)$								& $y=K \left[ 1-e^{- \frac{t}{T}}\right]$	& \\
 				$G(j \omega)= \frac{K}{1+j\omega T}$	& $\left| G \right| = \frac{K}{\sqrt{1+(\omega T)^2}}$ &
-				$argG=-\arctan(\omega T)$
+				$arg(G)=-\arctan(\omega T)$
 			\end{tabular}
 			\\ \cline{2-3}
 			& \parbox[c][2cm]{3cm}{\input{./tikz/PT1GliedStruktur}}	
@@ -98,8 +99,8 @@
                	} \\
                	$G(j \omega)= \frac{K}{1+ 2 \zeta (j\omega) T  + (j \omega T)^2}$ & $\left| G \right| = \frac{K}{\sqrt{\left[1+(j\omega
                	T)^2\right]^2+\left[2\zeta \omega T \right]^2}}$ & \\
-               	$\arg G=-\arctan  \frac{2\zeta \omega T}{1+(j\omega T)^2}$ & $0 \leq\omega T \leq 1$ & \\
-               	$\arg G=\arctan \frac{2\zeta \omega T}{1+(j \omega T)^2}-\pi$ & $1 \leq\omega T \leq \infty$ & \\
+               	$\arg(G)=-\arctan  \frac{2\zeta \omega T}{1+(j\omega T)^2}$ & $0 \leq\omega T \leq 1$ & \\
+               	$\arg(G)=\arctan \frac{2\zeta \omega T}{1+(j \omega T)^2}-\pi$ & $1 \leq\omega T \leq \infty$ & \\
 	        	
 	        \end{tabular}
 			\\ \cline{2-3}
@@ -124,7 +125,7 @@
   					u(t-T_t) & t \geq T_t
 					\end{cases}$ & & \\
 				$u=1(t)$ & $y=1(t-T_t)$ & \\
-				$G(j \omega)= e^{-j\omega T_t}$ & $\left| G \right| = 1$ & $argG=-\omega T_t$
+				$G(j \omega)= e^{-j\omega T_t}$ & $\left| G \right| = 1$ & $arg(G)=-\omega T_t$
 	        \end{tabular}
 			\\ \cline{2-3}
 			& \parbox[c][2cm]{3cm}{\input{./tikz/TtGliedStruktur}}
@@ -220,7 +221,7 @@
         	\fbox{$\omega_\pi = \sqrt{K}$}
         	bei $\ddot{y} + K \cdot y = 0$
 	\end{multicols}
-	Zur Instabilität führt das Zusammenwirken von Verstärkung und Signalverzögerung. Dabei ist die Reihenfolge der Glieder beliebig. Entscheiden sind gesamte Verstärkung $=$ Kreisverstärkung und gesamte Verzögerung $=$ Kreisverzögerung im offenen Regelkreis.
+	Zur Instabilität führt das Zusammenwirken von Verstärkung und Signalverzögerung. Dabei ist die Reihenfolge der Glieder beliebig. Entscheidend sind gesamte Verstärkung ($=$ Kreisverstärkung) und gesamte Verzögerung ($=$ Kreisverzögerung) im offenen Regelkreis.
 
 	\subsection{Nyquistkriterium \formelbuch{129}}
 		\begin{minipage}{8cm}
@@ -228,8 +229,8 @@
 		\end{minipage}
 		\begin{minipage}{10cm}
 			Der geschlossene Regelkreis ist genau dann stabil, wenn beim Durchlauf der
-			Ortskurve des offenen Regelkreise $G_o$ in Richtung zunehmender Frequenz der kritische Punkt -1 \glqq zur Linken\grqq\ liegt, daher nicht umschlungen wird. \\ \\ 
-			Dies ist eine vereinfachte Form des Nyquist-Kriterium und setzt einen stabilen offenen Kreis voraus (Prozess mit Ausgleich), der auch noch durch ein I-Glied ergänzt sein darf (Prozess ohne Ausgleich).
+			Ortskurve des offenen Regelkreises $G_o$ in Richtung zunehmender Frequenz der kritische Punkt -1 \glqq zur Linken\grqq\ liegt, daher nicht umschlungen wird. \\ \\ 
+			Dies ist eine vereinfachte Form des Nyquist-Kriteriums und setzt einen stabilen offenen Kreis voraus (Prozess mit Ausgleich), der auch noch durch ein I-Glied ergänzt sein darf (Prozess ohne Ausgleich).
 		\end{minipage}
 		 
 		
@@ -265,12 +266,12 @@
 	\subsection{Sprungantwort und Stabilität \formelbuch{135}}
 		\subsubsection{Stabilitätssatz für ein geschlossenes System 2. Ordnung \formelbuch{137}}
 			Ein System 2. Ordnung ist genau dann stabil, wenn {\bf alle} Koeffizienten der
-			homogenen Dgl. positiv und ungleich 0 sind.\\
+			homogenen DGL positiv und ungleich 0 sind.\\
 			$\ddot{y}+a_1\dot{y}+a_0y=F(u)$ \\
 			Für $a_0 = 0$ und $a_1 > 0$ enthält der Prozess ein reines I-Glied und
 			ist somit ein Prozess ohne Ausgleich.  \\ \\
 			Bei LTI-Systemen höherer Ordnung genügt dieser Satz nicht. Er ist jedoch notwendig, daher müssen alle Koeffizienten vorhanden und positiv sein. Jedoch ist dies nicht hinreichend!
 			
 		\subsubsection{Stabilitätssatz für die Sprungantwort}
-			Ein LTI-System ist genau dann stabil, wenn die Sprungantwort einem
+			Ein LTI-System ist genau dann stabil, wenn die Sprungantwort auf einen
 			konstantem Wert zustrebt.

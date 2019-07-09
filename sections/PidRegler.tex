@@ -10,8 +10,8 @@
 
 	\subsection{I-Regler \formelbuch{160}}
 		Der reine I-Regler ist allgemein ungünstig, weil er relativ langsam arbeitet
-		und die Stabilität schwächt. Ist aber die Regelstrecke nur erster Ordnung
-		erziehlt man gute Ergebnisse mit dem I-Regler.\\
+		und die Stabilität schwächt. Ist aber die Regelstrecke nur erster Ordnung,
+		erzielt man gute Ergebnisse mit dem I-Regler.\\
 		Der I-Regler neigt zum Schwingen.\\
 		Bei sprungförmigen Signalen, d.h. für Festwertregelungen hat der I-Regler
 		keinen Fehler!
@@ -138,7 +138,7 @@
 
 	\subsection{PID-Regler \formelbuch{183/383}}
     \begin{tabular}{m{9cm}|m{10cm}}
-      \textbf{additive Form}(Parallelschaltung) & multiplikative Form (Serienschaltung) \\
+      \textbf{additive Form} (Parallelschaltung) & multiplikative Form (Serienschaltung) \\
       \includegraphics[width=9cm]{./images/PID_Regler_add} &
       \includegraphics[width = 7cm]{./images/PID_Regler_mul}
       \\
@@ -207,10 +207,9 @@
 	\end{tabular}
   
   \parbox{5cm}{$\Rightarrow \boxed{T_C = T_V\dfrac{1}{4 \ldots \text{bis } 50}}$}
-  \parbox{14cm}{Empirisch Einstellregeln ergeben praktisch nicht immer das bestmögliche Zeitverhalten,
-  sondern sie liefern eine erste Einstellung, welche experimentell noch verbessert werden kann.} \\ \\
+  \parbox{14cm}{Empirische Einstellregeln ergeben in der Praxis nicht immer das bestmögliche Zeitverhalten, sondern sie liefern eine erste Einstellung, welche experimentell noch verbessert werden kann.} \\ \\
   
-  Um Ausschläge im Stellsignal, welche durch die typische Reaktion eines $DT_1$ auf einen Sprung verursacht werden, zu verhindern, darf man die Führungsgrösse r nicht über den Differenzierer leiten. Dies wird mit der Reglerstruktur auf S. 194 erreicht. 
+  Um Ausschläge im Stellsignal, welche durch die typische Reaktion eines $DT_1$ auf einen Sprung verursacht werden, zu verhindern, darf man die Führungsgrösse $r$ nicht über den Differenzierer leiten. Dies wird mit der Reglerstruktur auf \formelbuch{194} erreicht. 
 
 
 	\subsection{Wind-Up \formelbuch{200}}
@@ -228,8 +227,8 @@
     \textbf{Ursachen für Wind-Up:}
     \begin{itemize}[leftmargin=*]
       \item I-Anteil
-      \item Sättigung am Regler Ausgang
-      \item $e(t)$ über "`längere Zeit"' $\neq 0$ ist.
+      \item Sättigung am Regler-Ausgang
+      \item $e(t)$ über "`längere Zeit"' $\neq 0$
     \end{itemize}
   
   \columnbreak
