@@ -1,6 +1,6 @@
-\section{PID-Regler \formelbuch{147}}
+\section{PID-Regler \formelbuch{142}}
 
-	\subsection{P-Regler - Stationärer Zustand \formelbuch{155}}
+	\subsection{P-Regler - Stationärer Zustand \formelbuch{147}}
 		Beim einfachsten linearen Regler, dem P-Typ, besteht ein proportionaler
 		Zusammenhang zwischen Fehler $e$ und Stellgrösse $u$.
 		Der P-Regler reagiert schnell, kann aber den Sprungfehler nicht vollständig
@@ -8,16 +8,16 @@
     zu Rauschen.
 
 
-	\subsection{I-Regler \formelbuch{160}}
+	\subsection{I-Regler \formelbuch{149}}
 		Der reine I-Regler ist allgemein ungünstig, weil er relativ langsam arbeitet
-		und die Stabilität schwächt. Ist aber die Regelstrecke nur erster Ordnung
-		erziehlt man gute Ergebnisse mit dem I-Regler.\\
+		und die Stabilität schwächt. Ist aber die Regelstrecke nur erster Ordnung,
+		erzielt man gute Ergebnisse mit dem I-Regler.\\
 		Der I-Regler neigt zum Schwingen.\\
 		Bei sprungförmigen Signalen, d.h. für Festwertregelungen hat der I-Regler
 		keinen Fehler!
 
 
-	\subsection{PT$_2$-Glied \formelbuch{163}}
+	\subsection{PT$_2$-Glied}
 	\subsubsection{Parameter der Sprungantwort}
     \renewcommand{\arraystretch}{1.8}
     \begin{tabular}{|m{7cm}|m{1cm}m{0.5cm}m{8cm}}
@@ -86,7 +86,7 @@
 		Weitere Formeln in der LTI-Grundglieder Tabelle
   \end{multicols}
   
-	\subsection{PI-Regler \formelbuch{174}}
+	\subsection{PI-Regler \formelbuch{150}}
     \begin{tabular}{m{10cm}m{8cm}}
       \includegraphics[width=10cm]{./images/PI_Regler.jpg} &
       {$u(t) = A \cdot K_R\left( 1 + \frac{t}{T_N}\right)$, wenn $e(t) = A \cdot 1(t)$ \newline
@@ -98,7 +98,7 @@
     \end{tabular}
 
 
-	\subsection{D-Glied  / $\text{DT}_1$-Glied \formelbuch{179/183}}
+	\subsection{D-Glied  / $\text{DT}_1$-Glied}
 		Der Differenzierer erzeugt ein Korrektursignal im voraus.
 		Nachteilig ist, wenn die Regelgrösse verrauscht ist, dann werden die
 		hochfrequenten Störsignale durch die Ableitung verstärkt.\\
@@ -121,7 +121,7 @@
     
     
 
-	\subsection{PD-Regler \formelbuch{187/383}}
+	\subsection{PD-Regler}
     \begin{tabular}{m{10cm}m{8cm}}
       {
         \includegraphics[width=10cm]{./images/PD_Regler.png}     \newline 
@@ -136,9 +136,9 @@
     \end{tabular}
  
 
-	\subsection{PID-Regler \formelbuch{183/383}}
+	\subsection{PID-Regler \formelbuch{153}}
     \begin{tabular}{m{9cm}|m{10cm}}
-      \textbf{additive Form}(Parallelschaltung) & multiplikative Form (Serienschaltung) \\
+      \textbf{additive Form} (Parallelschaltung) & multiplikative Form (Serienschaltung) \\
       \includegraphics[width=9cm]{./images/PID_Regler_add} &
       \includegraphics[width = 7cm]{./images/PID_Regler_mul}
       \\
@@ -156,7 +156,7 @@
     \end{tabular}
 		
 
-	\subsection{Empirische Einstellregeln \formelbuch{188}}
+	\subsection{Empirische Einstellregeln \formelbuch{162}}
 		\includegraphics[width=13cm]{./images/Empirisch_Regeln.jpg}
 		\begin{minipage}[b]{5cm}
         UTF des angenäherten Modells:\\ \\
@@ -207,13 +207,12 @@
 	\end{tabular}
   
   \parbox{5cm}{$\Rightarrow \boxed{T_C = T_V\dfrac{1}{4 \ldots \text{bis } 50}}$}
-  \parbox{14cm}{Empirisch Einstellregeln ergeben praktisch nicht immer das bestmögliche Zeitverhalten,
-  sondern sie liefern eine erste Einstellung, welche experimentell noch verbessert werden kann.} \\ \\
+  \parbox{14cm}{Empirische Einstellregeln ergeben in der Praxis nicht immer das bestmögliche Zeitverhalten, sondern sie liefern eine erste Einstellung, welche experimentell noch verbessert werden kann.} \\ \\
   
-  Um Ausschläge im Stellsignal, welche durch die typische Reaktion eines $DT_1$ auf einen Sprung verursacht werden, zu verhindern, darf man die Führungsgrösse r nicht über den Differenzierer leiten. Dies wird mit der Reglerstruktur auf S. 194 erreicht. 
+  Um Ausschläge im Stellsignal, welche durch die typische Reaktion eines $DT_1$ auf einen Sprung verursacht werden, zu verhindern, darf man die Führungsgrösse $r$ nicht über den Differenzierer leiten.
 
 
-	\subsection{Wind-Up \formelbuch{200}}
+	\subsection{Wind-Up \formelbuch{170}}
   \begin{tabular}{lp{15cm}}
     \textbf{Definition:} &
     Der Fehler $e$ am Integratoreingang bleibt konstant, sodass dessen
@@ -228,8 +227,8 @@
     \textbf{Ursachen für Wind-Up:}
     \begin{itemize}[leftmargin=*]
       \item I-Anteil
-      \item Sättigung am Regler Ausgang
-      \item $e(t)$ über "`längere Zeit"' $\neq 0$ ist.
+      \item Sättigung am Regler-Ausgang
+      \item $e(t)$ über "`längere Zeit"' $\neq 0$
     \end{itemize}
   
   \columnbreak
