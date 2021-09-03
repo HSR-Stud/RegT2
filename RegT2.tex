@@ -19,19 +19,22 @@
 \usepackage{longtable}
 \usepackage{tikz}
 
+\usepackage{tabularx}
+
+\usepackage{tex/regtec}
 
 \usepackage{enumitem}
 \setlist{noitemsep,topsep=1pt,parsep=1pt,partopsep=1pt}
 
 \raggedbottom
-% Möglichst keine Ergänzungen hier, sondern in header.tex
-\begin{document} 
- 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{sections/GegenkopplungStabilitaet}
-\newpage
+\begin{document} 
+
+\input{tex/grundglieder} %% TODO: fix this table
+\twocolumn
+\input{tex/stabilitaet}
+\onecolumn
+
 \input{sections/PidRegler}
 \input{sections/Diverses}
 

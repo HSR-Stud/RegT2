@@ -1,0 +1,145 @@
+\section{LTI-Grundglieder \formelbuch{115 \& 201}}
+\label{subsec:LTI-Grundglieder}	
+	\begin{longtable}{|c|c|l|}
+		\specialrule{2pt}{0pt}{0pt}
+		{\bf Typ} & {\it Symbol} & {\it Gleichung, DGL}\\
+		 & & {\it Sprungantwort}\\
+		 & & {\it Frequenzgang, Betrag und Argument}\\ \cline{2-3}
+		 & Strukturbild & {\it Nyquistdiagramm} -- {\it Bodediagramm}\\
+		\specialrule{2pt}{0pt}{0pt}
+		
+		
+		%P-Glied
+		P & \parbox[c][2cm]{3cm}{\input{./tikz/PGlied}}
+		&
+		\begin{tabular}{lll}
+			$y = Ku$		&							& \\
+			$u=1(t)$		& $y=K 1(t)$				& \\
+			$G(j \omega)=K$	& $\left| G \right| = K$	& $arg(G)=0$ \\
+		\end{tabular} 
+		\\ \cline{2-3}
+		& \parbox[c][2cm]{3cm}{\input{./tikz/PGliedStruktur}}
+		& 
+		\parbox[c]{3cm}{\input{./tikz/PGliedNyquist}} \quad
+		\parbox[c]{6cm}{\input{./tikz/PGliedBode}}			 
+		\\
+		\specialrule{2pt}{0pt}{0pt}
+		
+		
+		%I-Glied
+		I & \parbox[c][2cm]{3cm}{\input{./tikz/IGlied}}
+		&
+		\begin{tabular}{lll}
+			$\dot{y} = Ku$					
+			& \multicolumn{2}{l}{$y = K \int\limits_{0}^{t}u(\tau)\;d\tau \qquad y(0) = 0 \qquad [K] = sec^{-1}$}										\\
+			$u=1(t)$						& $y=K t$								& \\
+			$G(j \omega)=\frac{K}{j\omega}$ & $\left| G \right| = \frac{K}{\omega}$ & $arg(G)=-\frac{\pi}{2}$ \\
+		\end{tabular}
+		\\ \cline{2-3}
+		& \parbox[c][2cm]{3cm}{\input{./tikz/IGliedStruktur}}
+		&
+		\parbox[c]{3cm}{\input{./tikz/IGliedNyquist}}
+		\parbox[c]{6cm}{\input{./tikz/IGliedBode}} 
+		\\
+		\specialrule{2pt}{0pt}{0pt}
+		
+		
+		%D-Glied
+		D & \parbox[c][2cm]{3cm}{\input{./tikz/DGlied}}
+		&
+		\begin{tabular}{lll}
+			$y = K\dot{u}$					
+			&	$[K] =sec$					& \\
+			$u=1(t)$						& $y=K \delta (t)$						& \\
+			$G(j \omega)=K j\omega$			& $\left| G \right| = K\omega$			& $arg(G)=\frac{\pi}{2}$
+		\end{tabular}
+		\\ \cline{2-3}
+		& \parbox[c][2cm]{3cm}{\input{./tikz/DGliedStruktur}}			
+		&
+		\parbox[c]{3cm}{\input{./tikz/DGliedNyquist}}
+		\parbox[c]{6cm}{\input{./tikz/DGliedBode}} 
+		\\
+		\specialrule{2pt}{0pt}{0pt}
+		
+		\newpage
+		
+		\specialrule{2pt}{0pt}{0pt}
+		
+		%PT1_Glied
+		$PT_1$ & \parbox[c][2cm]{3cm}{\input{./tikz/PT1Glied}}
+		&
+		\begin{tabular}{lll}
+			$T\dot{y}+y=Ku$							& $y(0)=0$									& \\
+			$u=1(t)$								& $y=K \left[ 1-e^{- \frac{t}{T}}\right]$	& \\
+			$G(j \omega)= \frac{K}{1+j\omega T}$	& $\left| G \right| = \frac{K}{\sqrt{1+(\omega T)^2}}$ &
+			$arg(G)=-\arctan(\omega T)$
+		\end{tabular}
+		\\ \cline{2-3}
+		& \parbox[c][2cm]{3cm}{\input{./tikz/PT1GliedStruktur}}	
+		&
+		\parbox[c]{3.7cm}{\input{./tikz/PT1GliedNyquist}}
+		\parbox[c]{6cm}{\input{./tikz/PT1GliedBode}}
+		\\
+		\specialrule{2pt}{0pt}{0pt}
+		
+		
+		%PT2_Glied
+		$PT_2$ &
+		\begin{minipage}{3cm}
+			\input{./tikz/PT2Glied}
+		\end{minipage}
+		&
+		\begin{tabular}{lll}
+			$T^2\ddot{y}+2\zeta T \dot{y}+y=Ku$ & $\ddot{y}+2\zeta\omega_n \dot{y}+\omega_n^2y=K\omega_n^2u$ & \\
+			$y(0)=0$ & $\dot{y}(0)=0$ & $\omega_n=\frac{1}{T}$ \\
+			\multicolumn{3}{l}{
+				$y=K \left[1-\frac{1}{\sqrt{1-\zeta^2}}e^{-\zeta\omega_n t}\sin
+				\left( \sqrt{1-\zeta^2} \omega_n t+arcos(\zeta) \right)\right]$
+			} \\
+			$G(j \omega)= \frac{K}{1+ 2 \zeta (j\omega) T  + (j \omega T)^2}$ & $\left| G \right| = \frac{K}{\sqrt{\left[1+(j\omega
+			T)^2\right]^2+\left[2\zeta \omega T \right]^2}}$ & \\
+			$\arg(G)=-\arctan  \frac{2\zeta \omega T}{1+(j\omega T)^2}$ & $0 \leq\omega T \leq 1$ & \\
+			$\arg(G)=\arctan \frac{2\zeta \omega T}{1+(j \omega T)^2}-\pi$ & $1 \leq\omega T \leq \infty$ & \\
+			
+		\end{tabular}
+		\\ \cline{2-3}
+		& \parbox[c][2cm]{3cm}{\input{./tikz/PT2GliedStruktur}}
+		& \begin{minipage}{3cm}
+		\includegraphics[angle = {-0.3}, width=3cm]{./images/PT2_Nyq.jpg}
+		\end{minipage}
+		\begin{minipage}{9cm}
+		\includegraphics[angle = {0.2}, width=8cm]{./images/PT2_Bode.jpg}
+		\end{minipage} \rule[-5mm]{0mm}{35mm}
+		\\
+		\specialrule{2pt}{0pt}{0pt}
+		
+		
+		%Tt_Glied
+		$T_t$ &
+		\parbox[c][2cm]{3cm}{\input{./tikz/TtGlied}}
+		&
+		\begin{tabular}{lll}
+			$y=\begin{cases}
+				0 & 0<t<T_t \\
+				u(t-T_t) & t \geq T_t
+				\end{cases}$ & & \\
+			$u=1(t)$ & $y=1(t-T_t)$ & \\
+			$G(j \omega)= e^{-j\omega T_t}$ & $\left| G \right| = 1$ & $arg(G)=-\omega T_t$
+		\end{tabular}
+		\\ \cline{2-3}
+		& \parbox[c][2cm]{3cm}{\input{./tikz/TtGliedStruktur}}
+		& 
+		\parbox[c]{3cm}{\input{./tikz/TtGliedNyquist}}
+		\parbox[c]{6cm}{\input{./tikz/TtGliedBode}}
+		\\
+		\specialrule{2pt}{0pt}{0pt}
+	
+	%DT1_Glied
+		$DT_1$ &
+		\parbox[c][2cm]{3cm}{\input{./tikz/DT1GliedStruktur}}
+		&
+		\begin{tabular}{lll}
+			$G(j \omega)= G_D \cdot G_{PT_1} = j\omega T_V \dfrac{1}{1+j\omega T_C} = \dfrac{T_V}{T_C}\left(1- \dfrac{1}{1+ j\omega T_C} \right)$ \\
+		\end{tabular}\\
+		\specialrule{2pt}{0pt}{0pt}
+			\end{longtable}
