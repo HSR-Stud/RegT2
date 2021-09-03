@@ -143,3 +143,92 @@
 		\end{tabular}\\
 		\specialrule{2pt}{0pt}{0pt}
 			\end{longtable}
+
+
+
+\subsection{D-Glied  / $\text{DT}_1$-Glied}
+Der Differenzierer erzeugt ein Korrektursignal im voraus.
+Nachteilig ist, wenn die Regelgrösse verrauscht ist, dann werden die hochfrequenten Störsignale durch die Ableitung verstärkt.
+Ein LTI-System, welches ohne D-Glied darstellbar ist, gegebenenfalls durch Umformung des Blockdiagramms, heisst realisierbar.
+In der Realität wird meistens kein reines D-Glied sondern ein $DT_1$-Glied verwendet:
+
+\begin{tabular}{|l||lll| l}
+  \cline{1-4}
+	\parbox[c][2cm]{3cm}{\input{./tikz/DSymbol}} &
+	\parbox[c][2cm]{4.5cm}{\input{./tikz/DT1GliedBlockdiagramm}} &
+	$\Rightarrow$ &
+	\parbox[c][2cm]{3cm}{\input{./tikz/DT1GliedStruktur}} &
+	\fbox{$G_{DT_1}(j\omega) = \frac{j\omega T_V}{1+ j\omega T_C} = \frac{T_V}{T_C}\left(1- \frac{1}{1+j\omega T_C} \right) $}
+	\\
+	$D$-Glied &
+	$D$-Glied \qquad $PT_1$-Glied & &
+	$DT_1$-Glied \\
+  \cline{1-4}
+\end{tabular}
+
+\subsection{PT$_2$-Glied}
+\subsubsection{Parameter der Sprungantwort}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|m{7cm}|m{1cm}m{0.5cm}m{8cm}}
+  \cline{1-1}
+  $y_{\infty} =A \cdot K$ & &
+  $y_{\infty}$: & Endwert\\
+  \cline{1-1}  
+	$T_\omega = 2T_m=\dfrac{2\pi}{\omega_n \sqrt{1-\zeta^2}}=\dfrac{2\pi}{\omega}$ & &
+	$T_{\omega}$: & Schwingungsdauer \\
+  \cline{1-1}
+	$\varepsilon = \dfrac{\Delta y}{y_{\infty}}$ & &
+	\parbox{0.5cm}{
+		$\varepsilon$:\\
+		$\Delta y$:
+	} & 
+	\parbox{8cm}{
+		Verhältnis von Überschwinger nach $T_e$ zum Endwert\\
+		Toleranzbereich der Amplitude nach $T_e$
+	}\\
+  \cline{1-1}  
+	$T_e = \dfrac{\ln\left(\varepsilon\sqrt{1-\zeta^2}\right)}{-\omega_n\cdot\zeta} = 
+	\dfrac{1}{\sigma}\ln\left(\dfrac{\varepsilon\omega}{\omega_n}\right)$ & &
+	$T_e$: & Einschwingzeit \\
+  \cline{1-1}  
+	$T_m = \dfrac{\pi}{\omega_n\sqrt{1-\zeta^2}}=\dfrac{\pi}{\omega}$ & &
+	$T_m$: & Überschwingungsdauer\\
+  \cline{1-1}  
+	$y_m = y_{\infty} \cdot e^{\frac{-\pi\cdot\zeta}{\sqrt{1-\zeta^2}}}$ & &
+	$y_m$: & Überschwingweite\\
+   \cline{1-1}  
+	$\omega = \dfrac{1}{T}\sqrt{1-\zeta^2}= \omega_n\sqrt{1-\zeta^2}=\dfrac{2\pi}{T_\omega}=2\pi f$ & &
+	$\omega$: & Kreisfrequenz \\
+  \cline{1-1}  
+	$\omega_n = \dfrac{1}{T}$ & &
+	$\omega_n$: & Kennkreisfrequenz \\
+  \cline{1-1}  
+	$T_a = \frac{\pi - \arccos{(\zeta)}}{\omega_n\cdot\sqrt{1-\zeta^2}}$ & &
+	$T_a$: & Anschwingzeit/Anregelzeit \\
+  \cline{1-1}  
+	$\sigma = -\dfrac{\zeta}{T} = -\zeta\omega_n$ & &
+	$\zeta$: & Dämpfungskonstante \\
+  \cline{1-1}
+	$\delta = \ln{\Big(\frac{y_i}{y_{i+1}}\Big)} = \frac{2\pi \zeta}{\sqrt{1-\zeta^2}}$ & &
+	$\delta$: & Logarithmisches Dekrement\\
+  \cline{1-1}  
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+	
+\subsubsection{Sprungantwort}
+\includegraphics[width = 9cm]{./images/pt2StepResp}
+
+\subsubsection{Dämpfung}
+Optimal bei $\zeta=\frac{1}{\sqrt{2}}$ ($\Psi=45$).
+Dabei erreicht die Regelgrösse $y$ nach $4.3\%$ Überschwingen rasch den	Endwert.
+
+\subsubsection{Berechnung $\zeta$}
+\textbf{Aus DGL} $\ddot{y}+a_1\dot{y}+a_0 y=\ldots$ folgt $a_1=2\zeta\omega_n$, 
+$a_0=\omega_n^2$
+$\Rightarrow \zeta=\frac{a_1}{2\sqrt{a_0}}$ \\
+\textbf{Mittels Überschwingweite} kann $\zeta$ ebenfalls berechnet werden\\
+\begin{tabular}{p{2.5cm}p{2.5cm}p{4cm}}
+$\zeta = \frac{1}{\sqrt{1+(\frac{\pi}{c})^2}}$ & $c =ln(\frac{y_m}{y_{\infty}})$ & $y_m$: Überschwingweite
+\end{tabular}
+
+Weitere Formeln in der LTI-Grundglieder Tabelle
