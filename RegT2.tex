@@ -1,34 +1,39 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%
-% Dokumentinformationen %
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\titleinfo}{Regelungstechnik 2 - Formelsammlung}
-\newcommand{\authorinfo}{Braun \& Co., J. Rast, K\"orner, Gwerder}
-\newcommand{\versioninfo}{$Revision: 2.0 $ - gem\"ass Unterricht Markus Kottmann/FS2013}
+\documentclass[margin=small]{tex/hsrzf}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Standard projektübergreifender Header für
-% - Makros 
-% - Farben
-% - Mathematische Operatoren 
-%
-% DORT NUR ERGÄNZEN, NICHTS LÖSCHEN
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\include{header/header}
-
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{tikz}
-
-\usepackage{tabularx}
-
+\usepackage{tex/hsrstud}
 \usepackage{tex/regtec}
 
-\usepackage{enumitem}
-\setlist{noitemsep,topsep=1pt,parsep=1pt,partopsep=1pt}
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=swiss]{german}
 
-\raggedbottom
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+    version={4.0},
+    lang={german},
+]{doclicense}
+
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{enumitem}
+
+\newcommand\formelbuch[1]{\texttt{\textcolor{red!60!black}{\small S#1}}}
+
+\title{Regelungstechnik 2 -- Formelsammlung}
+\author{Braun \& Co., J. Rast, K\"orner, Gwerder, Pross}
+% \versioninfo}{$Revision: 2.0 $ - gem\"ass Unterricht Markus Kottmann/FS2013}
 
 \begin{document} 
+
+\maketitle
+\tableofcontents
+
+\section*{Lizenz}
+\doclicenseThis{}
+
+\newpage
 
 \input{tex/grundglieder} %% TODO: fix this table
 \twocolumn
