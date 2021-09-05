@@ -117,7 +117,16 @@
         .. controls (P6) .. ++(.2,0)
         ;
     },
-  }
+  },
+  rtpi/.style = {
+    rtbox,
+    path picture = {
+      \draw[very thick]
+        ($(path picture bounding box.south west) + (.2,0)$)
+        -- ++(0,.3) --
+        ($(path picture bounding box.north east) - (0,.2)$);
+    },
+  },
 }
 \newenvironment{rtdiagram}{%
   \begin{tikzpicture}

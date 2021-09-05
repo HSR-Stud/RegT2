@@ -25,7 +25,10 @@ Zur Instabilität führt das Zusammenwirken von Verstärkung und Signalverzöger
 			(Y) |- ($(S) - (0,.8)$) -- node[left, pos = .5] {\(-\)} (S);
 	\end{tikzpicture}
 \end{figure}
-P-Glied mit Totzeit gegengekoppelt hat \(G_0(j\omega) = K_P e^{-j\omega T_t}\).
+P-Glied mit Totzeit gegengekoppelt hat 
+\[
+	G_0(j\omega) = K_P e^{-j\omega T_t}, \text{ wobei wenn}
+\]
 \begin{itemize}
 	\item \(K_P < 1\) stabil
 	\item \(K_P = 1\) grenzstabil
@@ -56,7 +59,10 @@ P-Glied mit Totzeit gegengekoppelt hat \(G_0(j\omega) = K_P e^{-j\omega T_t}\).
 			(Y) |- ($(S) - (0,.8)$) -- node[left, pos = .5] {\(-\)} (S);
 	\end{tikzpicture}
 \end{figure}
-I-Glied mit Totzeit gegengekoppelt \formelbuch{109} hat \(G_0(j\omega) = \frac{K_I}{j\omega}e^{-j\omega T_t}\).
+I-Glied mit Totzeit gegengekoppelt \formelbuch{109} hat
+\[
+	G_0(j\omega) = \frac{K_I}{j\omega}e^{-j\omega T_t},
+\]
 \begin{itemize}
 	\item Grenzkurve \(K_I T_t = \pi/2 \)
 	\item Phasenschnittfrequenz \(\omega_\pi = K_I\)
@@ -86,20 +92,25 @@ I-Glied mit Totzeit gegengekoppelt \formelbuch{109} hat \(G_0(j\omega) = \frac{K
 			(Y) |- ($(S) - (0,.8)$) -- node[left, pos = .5] {\(-\)} (S);
 	\end{tikzpicture}
 \end{figure}
-Zwei I-Glieder gegengekoppelt \formelbuch{111}.
+Zwei I-Glieder gegengekoppelt \formelbuch{111} hat
+\[
+	G_0(j\omega) = \frac{K_1 K_2}{(j\omega)^2},
+\]
 \begin{itemize}
 	\item Phasenschnittfrequenz \(\omega_\pi = \sqrt{K_1 K_2}\)
 \end{itemize}
 
 
 \subsection{Spezielle Nyquistkriterium \formelbuch{125\&128}}
+%% TODO: find a better picture or complete tikz
+\iffalse
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width = .9\linewidth]{./images/Nyquistkurve}
 	%% TODO: finish
 	\iffalse
 	\begin{tikzpicture}
-		\pgfmathsetmacro\radius{2.25}
+		\pgfmathsetmacro\radius{2}
 
 		% axis and unit circle
 		\draw[thick, ->] (-1.25*\radius, 0) to (2.25*\radius, 0) node[right] {Re};
@@ -108,11 +119,10 @@ Zwei I-Glieder gegengekoppelt \formelbuch{111}.
 
 		% scaled curves (increase k)
 		\foreach \scale / \color / \domain in {%
-			1.3/lightgray/1.2:{1.5*pi},
-			1.6/lightgray/1.4:{1.4*pi},
-			1.86/red!50!gray/1.6:{1.3*pi}%
+			1.86/red!50!gray/1.8:{1.3*pi},%
+			2.3/orange!50!gray/2:{1.2*pi}%
 		}{
-			\draw[draw = \color, thick, domain = \domain, samples = 40] plot
+			\draw[draw = \color, ultra thick, domain = \domain, samples = 40] plot
 				({\scale * \radius * (1/4 + \x / 4 * cos(\x * 180/pi))},
 				 {\scale * \radius * \x / 4 * sin(\x * 180/pi)});
 		}
@@ -124,6 +134,8 @@ Zwei I-Glieder gegengekoppelt \formelbuch{111}.
 	\end{tikzpicture}
 	\fi
 \end{figure}
+\fi
+
 Der geschlossene Regelkreis ist genau dann stabil, wenn beim Durchlauf der Ortskurve des offenen Regelkreises \(G_0\) in Richtung zunehmender Frequenz der kritische Punkt \(-1\) ``zur Linken'' liegt, daher nicht umschlungen wird.
 
 Dies ist eine vereinfachte Form des Nyquist-Kriteriums und setzt einen stabilen offenen Kreis voraus (Prozess mit Ausgleich), der auch noch durch ein I-Glied ergänzt sein darf (Prozess ohne Ausgleich).
