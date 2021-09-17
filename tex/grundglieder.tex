@@ -490,14 +490,101 @@
 
 		\bottomrule[2pt]
 	\end{tabularx}
+
+	\begin{multicols}{2}
+		\raggedright
+		%% TODO: finish
+		% \subsection{\"Aquivalente Glieder}
+		% \begin{center}
+		% 	\begin{tikzpicture}
+		% 		\matrix[column sep = 5mm]{
+		% 			\node[rtpi] {}; &
+		% 			\node {\(=\)}; &
+		% 			\node[rtprop] (P) {};
+		% 			\node[rtint, right = 7mm of P] (I) {}; \\
+		% 		};
+		% 		\draw[ultra thick, ->] (P.west) ++(-.4,0) -- (P.west);
+		% 		\draw[ultra thick, ->] (P) -- (I);
+		% 		\draw[ultra thick, <-] (I.east) ++(.4,0) -- (I.east);
+		% 	\end{tikzpicture}
+		% \end{center}
+
+		% \begin{center}
+		% 	\begin{tikzpicture}
+		% 		\matrix[column sep = 5mm]{
+		% 			\node[rtpt1] {}; &
+		% 			\node {\(=\)}; \\
+		% 		};
+		% 	\end{tikzpicture}
+		% \end{center}
+
+		\subsection{Schaltungen}
+		\begin{center}
+			\begin{tikzpicture}[
+					node distance = 1mm,
+					wire/.style = {ultra thick}
+				]
+				% series
+				\begin{scope}
+					\matrix (M) [column sep = 7mm, nodes = {rtbox}]{
+						\node (G1) {\(G_1\)}; & \node (G2) {\(G_2\)}; \\
+					};
+					
+					\node[above = 8mm of M] {Serieschaltung \(G = G_1 \cdot G_2\)};
+
+					\draw[wire, ->] (G1.west) ++(-.5,0) node[left] {\(u\)} -- (G1.west);
+					\draw[wire, ->] (G1) -- (G2);
+					\draw[wire, <-] (G2.east) ++(.5,0) node[right] {\(y\)} -- (G2.east);
+				\end{scope}
+
+				% parallel
+				\begin{scope}[xshift = 6cm]
+					\matrix (M) [row sep = 1mm, column sep = 7mm, nodes = {rtbox}]{
+						& \node[rtbox] (G1) {\(G_1\)}; \\
+						\node[rtsplit] (L) {}; & & \node[rtsum] (R) {}; \\
+						& \node[rtbox] (G2) {\(G_2\)}; \\
+					};
+					
+					\node[above = of M] {Parallelschaltung \(G = G_1 + G_2\)};
+
+					\draw[wire] (L.west) ++(-.5,0) node[left] {\(u\)} -- (L.west);
+					\draw[wire, ->] (L) |- (G1);
+					\draw[wire, ->] (L) |- (G2);
+					\draw[wire, ->] (G1) -| node[pos = .9, right] {\(+\)} (R);
+					\draw[wire, ->] (G2) -| node[pos = .9, right] {\(+\)} (R);
+					\draw[wire, <-] (R.east) ++(.5,0) node[right] {\(y\)} -- (R.east);
+				\end{scope}
+
+				% negative feedback
+				\begin{scope}[yshift = -4cm]
+					\matrix (M) [row sep = 4mm, column sep = 7mm] {
+						\node[rtsum] (L) {}; & \node[rtbox] (G0) {\(G_0\)}; & \node[rtsplit] (R) {}; \\
+						& \node[rtbox] (GF) {\(G_F\)}; \\
+					};
+
+					\node[above = of M] {R\"uckkopplung \(\displaystyle G = \frac{G_0}{1 + G_0 \cdot G_F}\)};
+
+					\draw[wire, ->] (L.west) ++(-.5,0) node[left] {\(u\)} -- node[pos = .6, below] {\(+\)} (L.west);
+					\draw[wire, ->] (L) -- (G0);
+					\draw[wire] (G0) -- (R);
+					\draw[wire, ->] (R) |- (GF);
+					\draw[wire, ->] (GF) -| node[pos = .9, left] {\(-\)} (L);
+					\draw[wire, <-] (R.east) ++(.5,0) node[right] {\(y\)} -- (R.east);
+				\end{scope}
+
+				% mason's rule
+				\begin{scope}[yshift = -4cm, xshift = 6cm]
+					%% TODO: mason's rule
+				\end{scope}
+			\end{tikzpicture}
+		\end{center}
+
+		\subsection{PT\(_2\)--Glied}
+		\subsubsection{D\"ampfung}
+		\subsubsection{Ersatzmodell}
+	\end{multicols}
 \end{landscape}
 \restoregeometry
-
-\subsection{\"Aquivalente Glieder}
-
-\subsection{PT\(_2\)--Glied}
-\subsubsection{D\"ampfung}
-\subsubsection{Ersatzmodell}
 
 \subsubsection{Parameter der Sprungantwort}
 \renewcommand{\arraystretch}{1.8}
