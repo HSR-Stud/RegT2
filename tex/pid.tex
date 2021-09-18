@@ -107,37 +107,42 @@ Um Ausschläge im Stellsignal, welche durch die typische Reaktion eines DT\(_1\)
 %% TODO: fix this table
 \begin{table*}
 	\renewcommand\arraystretch{1.2}
+	\centering
 	\begin{tabular}{ ll rrrrrr }
 		\toprule
 		\multicolumn{6}{l}{
-			\textbf{Reglereinstellung nach Chien-Hrones-Reswick}
+			\textbf{Chien-Hrones-Reswick}
 		}
 		&
 		\multicolumn{2}{l}{
-			\textbf{Reglereinstellung nach Ziegler-Nichols}
+			\textbf{Ziegler-Nichols}
 		}
 		\\ 
 
 		\cmidrule(lr){1-6} \cmidrule(lr){7-8}
 		\multicolumn{6}{l}{
 			\(\displaystyle
-				q = \frac{T_g}{T_uK_S} \qquad \mu = \frac{T_g}{T_u}
-				\qquad \text{wenn} \quad \mu
+				q = \frac{T_g}{T_uK_S}, \quad
+				\mu = \frac{T_g}{T_u} \quad
+				\text{wenn } \mu
 				\begin{cases}
-					> 10 \rightarrow \text{Strecke gut regelbar} \\
-					< 3 \rightarrow \text{Strecke schlecht regelbar}
+					> 10 & \text{Strecke gut regelbar} \\
+					< 3  & \text{Strecke schlecht regelbar}
 				\end{cases}
 			\)
 		}
 		&
-		\( q = \frac{T_g}{T_uK_s} \)
+		\(\displaystyle q = \frac{T_g}{T_uK_s} \)
 		&
-		\(K_{R\pi} \qquad T_\pi=\frac{2\pi}{\omega_\pi}\)
+		\(\displaystyle K_{R\pi}, \qquad T_\pi = \frac{2\pi}{\omega_\pi}\)
 		\\
 
 		\cmidrule(lr){1-6} \cmidrule(lr){7-8}
 
-		\textbf{Regler} & \textbf{Parameter} &
+		\textbf{Regler}
+		&
+		% \textbf{Parameter}
+		&
 		\multicolumn{2}{p{3.5cm}}{
 			\textbf{Führungsverhalten} % \newline $y_m$: Überschwingen
 		}
@@ -146,15 +151,19 @@ Um Ausschläge im Stellsignal, welche durch die typische Reaktion eines DT\(_1\)
 			\textbf{Störverhalten}
 		}
 		&
-		\textbf{Sprungantwort}
+		\multicolumn{1}{l}{
+			\textbf{Sprungantwort}
+		}
 		&
-		\textbf{Stabilitätsgrenze}
+		\multicolumn{1}{l}{
+			\textbf{Stabilitätsgrenze}
+		}
 		\\
 
-		& & kein $y_m$ & $y_m / y_\infty = 20 \%$ & kein $a$ & $a / b = 20 \%$ & & \\
+		\multicolumn{2}{l}{und Parameter}
+		& kein $y_m$ & $y_m / y_\infty = 20 \%$ & kein $a$ & $a / b = 20 \%$ & & \\
 
-		\cmidrule(lr){1-1}
-		\cmidrule(lr){2-2}
+		\cmidrule(lr){1-2}
 		\cmidrule(lr){3-4}
 		\cmidrule(lr){5-6}
 		\cmidrule(lr){7-7}
@@ -171,6 +180,7 @@ Um Ausschläge im Stellsignal, welche durch die typische Reaktion eines DT\(_1\)
         & $T_V$ & $0.5T_u$ & $0.47T_u$ & $0.42T_u$ & $0.42T_u$ & $0.5T_u$ & $0.125T_\pi$   \\
 		\bottomrule
 	\end{tabular}
+	\caption{Empirische Reglereinstellung}
 \end{table*}
 
 \subsection{Wind-Up \formelbuch{170}}
