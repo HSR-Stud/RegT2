@@ -1,5 +1,4 @@
 \newgeometry{hmargin = 2cm, vmargin = 2cm}
-\thispagestyle{empty}
 \begin{landscape}
 	\section{LTI-Grundglieder \formelbuch{115 \& 201}}
 	\usetikzlibrary{arrows}
@@ -434,7 +433,7 @@
 					-- ++(0,1) node[above] {\(|G|_\text{dB}\)};
 
 				\draw[line] (0,-.3)
-					-- (.8,0) node[dot] {} node[black, above left] {\(\omega = \frac{1}{K}\)}
+					-- (.8,0) node[dot] {} node[black, below] {\(\omega = \frac{1}{K}\)}
 					-- (1.6,.3);
 			\end{scope}
 
@@ -519,7 +518,8 @@
 		% \end{center}
 
 		\subsection{Schaltungen}
-		\begin{center}
+		\begin{figure}[H]
+			\centering
 			\begin{tikzpicture}[
 					node distance = 1mm,
 					wire/.style = {ultra thick}
@@ -577,10 +577,56 @@
 					%% TODO: mason's rule
 				\end{scope}
 			\end{tikzpicture}
-		\end{center}
+		\end{figure}
 
 		\subsection{PT\(_2\)--Glied}
+		\subsubsection{Sprungantwort}
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}
+				% parameters
+				\pgfmathsetmacro{\K}{2}
+				\pgfmathsetmacro{\T}{.4}
+				\pgfmathsetlengthmacro{\zeta}{.15}
+
+				% help macros
+				\pgfmathsetlengthmacro{\onemzsq}{sqrt(1 - \zeta^2)}
+				\pgfmathsetlengthmacro{\scale}{.8 * \linewidth / 10}
+
+				% axis
+				\draw[thick, <->] (.8 * \linewidth,0) node[right] {\(t\)} 
+					-- (0,0) -- (0,{2 + \K}) node[above] {\(y\)};
+
+				% plots
+				\draw[very thick, hsr-mauve] (0,0) -- ++(0,\K) -- (10,\K);
+
+				\draw[thick, gray, dashed, smooth, samples = 100, variable = \t, domain = 0:10]
+					plot ({\t * \scale}, {
+						\scale * \K * (1 - exp(-\zeta * \t / \T))
+					});
+
+				\draw[very thick, hsr-blue, smooth, samples = 100, variable = \t, domain = 0:10]
+					plot ({\t * \scale}, {
+						\scale * \K * (
+							1 - exp(-\zeta * \t / \T) * (
+								cos(\onemzsq * \t / \T * 180 / pi)
+								+ \zeta / \onemzsq * sin(\onemzsq * \t / \T * 180 / pi)
+							)
+						)
+					});
+
+			\end{tikzpicture}
+		\end{figure}
 		\subsubsection{D\"ampfung}
+		\[
+			K/G_{\text{PT}_2} = T^2 (j\omega)^2 + 2 \zeta T (j\omega) + 1
+			= \begin{cases}
+				\text{aperiodisch} & \zeta = 1     \\
+				\text{stabil}      & 0 < \zeta < 1 \\
+				\text{grenzstabil} & \zeta = 0     \\
+				\text{instabil}    & \zeta < 0 
+			\end{cases}
+		\]
 		\subsubsection{Ersatzmodell}
 	\end{multicols}
 \end{landscape}
