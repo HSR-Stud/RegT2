@@ -104,6 +104,84 @@ Empirische Einstellregeln ergeben in der Praxis nicht immer das bestmögliche Ze
   
 Um Ausschläge im Stellsignal, welche durch die typische Reaktion eines DT\(_1\) auf einen Sprung verursacht werden, zu verhindern, darf man die Führungsgrösse \(r\) nicht über den Differenzierer leiten.
 
+%% TODO: fix this table
+\begin{table*}
+	\renewcommand\arraystretch{1.2}
+	\centering
+	\begin{tabular}{ ll rrrrrr }
+		\toprule
+		\multicolumn{6}{l}{
+			\textbf{Chien-Hrones-Reswick}
+		}
+		&
+		\multicolumn{2}{l}{
+			\textbf{Ziegler-Nichols}
+		}
+		\\ 
+
+		\cmidrule(lr){1-6} \cmidrule(lr){7-8}
+		\multicolumn{6}{l}{
+			\(\displaystyle
+				q = \frac{T_g}{T_uK_S}, \quad
+				\mu = \frac{T_g}{T_u} \quad
+				\text{wenn } \mu
+				\begin{cases}
+					> 10 & \text{Strecke gut regelbar} \\
+					< 3  & \text{Strecke schlecht regelbar}
+				\end{cases}
+			\)
+		}
+		&
+		\(\displaystyle q = \frac{T_g}{T_uK_s} \)
+		&
+		\(\displaystyle K_{R\pi}, \qquad T_\pi = \frac{2\pi}{\omega_\pi}\)
+		\\
+
+		\cmidrule(lr){1-6} \cmidrule(lr){7-8}
+
+		\textbf{Regler}
+		&
+		% \textbf{Parameter}
+		&
+		\multicolumn{2}{p{3.5cm}}{
+			\textbf{Führungsverhalten} % \newline $y_m$: Überschwingen
+		}
+		&
+		\multicolumn{2}{l}{
+			\textbf{Störverhalten}
+		}
+		&
+		\multicolumn{1}{l}{
+			\textbf{Sprungantwort}
+		}
+		&
+		\multicolumn{1}{l}{
+			\textbf{Stabilitätsgrenze}
+		}
+		\\
+
+		\multicolumn{2}{l}{und Parameter}
+		& kein $y_m$ & $y_m / y_\infty = 20 \%$ & kein $a$ & $a / b = 20 \%$ & & \\
+
+		\cmidrule(lr){1-2}
+		\cmidrule(lr){3-4}
+		\cmidrule(lr){5-6}
+		\cmidrule(lr){7-7}
+		\cmidrule(lr){8-8}
+		P & $K_R$ & $0.3q$ & $0.7q$ & $0.3q$ & $0.7q$ & $q$ & $0.5K_{R\pi}$ \\
+
+		% \cmidrule(lr){1-6} \cmidrule(lr){7-8}
+		PI & $K_R$ & $0.35q$   & $0.6q$ & $0.6q$ & $0.7q$    & $0.9q$    & $0.45K_{R\pi}$ \\
+       & $T_N$ & $1.17T_g$ & $1T_g$ & $4T_u$ & $2.33T_u$ & $3.33T_u$ & $0.85T_{\pi}$  \\
+
+		% \cmidrule(lr){1-6} \cmidrule(lr){7-8}
+		PID & $K_R$ & $0.6q$   & $0.95q$   & $0.95q$   & $1.2q$    & $1.2q$   & $0.60K_{R\pi}$ \\
+        & $T_N$ & $1T_g$   & $1.36T_g$ & $2.38T_u$ & $2T_u$    & $2T_u$   & $0.50T_\pi$    \\
+        & $T_V$ & $0.5T_u$ & $0.47T_u$ & $0.42T_u$ & $0.42T_u$ & $0.5T_u$ & $0.125T_\pi$   \\
+		\bottomrule
+	\end{tabular}
+	\caption{Empirische Reglereinstellung}
+\end{table*}
 
 \subsection{Wind-Up \formelbuch{170}}
 \begin{description}

@@ -1,5 +1,4 @@
 \newgeometry{hmargin = 2cm, vmargin = 2cm}
-\thispagestyle{empty}
 \begin{landscape}
 	\section{LTI-Grundglieder \formelbuch{115 \& 201}}
 	\usetikzlibrary{arrows}
@@ -11,8 +10,11 @@
 		axis/.style = {
 			thick, ->
 		},
-		locus/.style = {
+		line/.style = {
 			ultra thick, hsr-blue,
+		},
+		locus/.style = {
+			line,
 			postaction = {
 				decorate, decoration = {
 					markings,
@@ -34,15 +36,19 @@
 			decorate,
 			decoration = {
 				brace,
-				raise = 5pt,
+				raise = 3pt,
 			},
 		},
 	}
 	\centering
 	\begin{tabularx}{\linewidth}{%
-			c >{\centering}m{4cm}%
-			*{2}{ >{\(\displaystyle}c<{\)} }%
-			m{3.5cm} m{4cm} X%
+			% columns with tikz graphics must be of type m{} to get a correct
+			% vertical centering
+			c % name
+			>{\centering}m{4cm} % symbol
+			*{2}{ >{\(\displaystyle}X<{\)} } % math stuff
+			m{3.5cm} % nyquist
+			m{6.5cm} % bode
 	}
 		\toprule[2pt]
 
@@ -51,15 +57,16 @@
 		\textbf{Differentialgleichung} &
 		\textbf{Frequenzgang } G &
 		\bfseries Nyquistdiagramm &
-		\bfseries Bodediagramm &
-		\bfseries Anmerkungen \\
+		\bfseries Bodediagramm \\
 
 		\midrule[1pt]\endhead
 
 		%
 		% Proportional
 		%
-		P &
+		P
+		&
+		% symbol
 		\begin{tikzpicture}
 			\node[rtprop] (G) {};
 			\node[anchor = south west] at (G.north west) {\(K\)};
@@ -67,14 +74,31 @@
 			\draw[ultra thick, ->] (G.east) -- ++(.5,0) node[right] {\(y\)};
 		\end{tikzpicture}
 		&
+		% diff eq
 		y = Ku & K
 		&
+		% nyquist diagram
 		\begin{tikzpicture}
 			\draw[axis] (-.2,0) -- (1.8,0) node[right] {Re};
-			\draw[axis] (0,-.5) -- (0,.3) node[above] {Im};
+			\draw[axis] (0,-.2) -- (0,.8) node[above] {Im};
 			\coordinate (P) at (1.5,0);
-			\draw[indbrace] (P) -- node[midway, below = 7pt] {\(K\)} (0,0);
+			\draw[indbrace] (0,0) -- node[midway, above = 7pt] {\(K\)} (P);
 			\node[dot] at (P) {};
+		\end{tikzpicture}
+		&
+		% bode diagram
+		\begin{tikzpicture}
+			% amplitude
+			\draw[axis] (-.2,0) node[left] {0} -- (1.8,0) node[right] {\(\log \omega\)};
+			\draw[axis] (0,-.2) -- (0,.8) node[above] {\(|G|_\text{dB}\)};
+			\draw[line] (0,.5) -- (1.7,.5);
+			\draw[gray, thick, <->] (1,0) -- node[midway, left] {\(K_\text{dB}\)} (1,.5);
+			% phase
+			\begin{scope}[xshift = 3.5cm]
+				\draw[axis] (-.2,0) node[left] {0} -- (1.8,0) node[right] {\(\log \omega\)};
+				\draw[axis] (0,-.2) -- (0,.8) node[above] {\(\angle G\)};
+				\draw[line] (0,0) -- (1.7,0);
+			\end{scope}
 		\end{tikzpicture}
 		\\
 
@@ -83,7 +107,9 @@
 		%
 		% Delay
 		%
-		T &
+		T
+		&
+		% symbol
 		\begin{tikzpicture}
 			\node[rtdelay] (G) {};
 			\node[anchor = south east] at (G.north east) {\(T_t\)};
@@ -91,14 +117,35 @@
 			\draw[ultra thick, ->] (G.east) -- ++(.5,0) node[right] {\(y\)};
 		\end{tikzpicture}
 		&
+		% diff eq
 		y(t) = \varepsilon(t) u(t - T_t) & e^{-j\omega T_t}
 		&
+		% nyquist diagram
 		\begin{tikzpicture}
 			\draw[axis] (-1,0) -- (1,0) node[right] {Re};
 			\draw[axis] (0,-1) -- (0,1) node[above] {Im};
 			\draw[locus] (.75,0) arc (360:0:.75);
 			\node[dot] at (.75,0) {};
 			\node[below right = .5mm] at (.75,0) {\(\omega = 2\pi n\)};
+		\end{tikzpicture}
+		&
+		% bode diagram
+		\begin{tikzpicture}
+			% amplitude
+			\draw[axis] (-.2,0) node[left] {0} -- (1.8,0) node[right] {\(\log \omega\)};
+			\draw[axis] (0,-.8) -- (0,.8) node[above] {\(|G|_\text{dB}\)};
+			\draw[line] (0,0) -- (1.7,0);
+
+			% phase
+			\begin{scope}[xshift = 3.5cm]
+				\draw[axis] (0,-.8) -- (0,.8) node[above] {\(\angle G\)};
+				\draw[axis] (-.2,.6) node[left] {0} -- (1.8,.6) node[right] {\(\log \omega\)};
+				%% TODO: fix this ugly thing
+				\begin{scope}[shift = {(2,.6)}]
+					\draw[line, domain = 0.001:1, samples = 60, smooth, variable = \x]
+						plot ({log10(\x) / 1.5}, {-\x});
+				\end{scope}
+			\end{scope}
 		\end{tikzpicture}
 		\\
 
@@ -107,7 +154,9 @@
 		%
 		% PT1
 		%
-		PT\(_1\) &
+		PT\(_1\)
+		&
+		% symbol
 		\begin{tikzpicture}
 			\node[rtpt1] (G) {};
 			\node[anchor = south west] at (G.north west) {\(K\)};
@@ -116,8 +165,10 @@
 			\draw[ultra thick, ->] (G.east) -- ++(.5,0) node[right] {\(y\)};
 		\end{tikzpicture}
 		&
+		% diff eq
 		T\dot{y} + y = Ku & \frac{K}{j\omega T + 1}
 		&
+		% nyquist diagram
 		\begin{tikzpicture}
 			\draw[axis] (-.2,0) -- (1.8,0) node[right] {Re};
 			\draw[axis] (0,-1) -- (0,.6) node[above] {Im};
@@ -129,6 +180,41 @@
 				(.75,-.75) node[dot] {} node[below] {\(\omega = 1/T\)}
 			;
 		\end{tikzpicture}
+		&
+		% bode diagram
+		\begin{tikzpicture}
+			% amplitude
+			\draw[axis] (-.2,0) node[left] {0} -- (1.8,0) node[right] {\(\log \omega\)};
+			\draw[axis] (0,-.8) -- (0,.8) node[above] {\(|G|_\text{dB}\)};
+
+			\draw[line]
+				(0,.5) -- (1,.5)
+					node[dot] {}
+					node[above, black] {\(\omega = \frac{1}{T}\)}
+					--
+					node[pos = .9, black, left, anchor = east] {\(-20\frac{\text{dB}}{\text{Dek}}\)}
+				(1.7,-.5);
+			\draw[gray, thick, <->] (.8,0) -- node[midway, left] {\(K_\text{dB}\)} (.8,.5);
+
+			% phase
+			\begin{scope}[xshift = 3.5cm]
+				\coordinate (O) at (0,.6);
+
+				\draw[axis] (O)
+					++ (-.2,0) node[left] {0} 
+					-- ++(2,0) node[right] {\(\log \omega\)};
+				\draw[axis] (0,-.8) -- (0,.8) node[above] {\(\angle G\)};
+
+				\draw[line] (0,.6)
+					-- (.3,.6) node[dot] {} node[above right, black] {\(\omega = \frac{1}{10 T}\)}
+					-- (.8,0) node[dot] (A) {} node[right, black] {\(\omega = \frac{1}{T}\)}
+					-- (1.3,-.6) node[dot] (B) {} node[below right, black] {\(\omega = \frac{10}{T}\)}
+					-- (1.7,-.6);
+
+				\draw[gray, dashed] (A) -- (O |- A) node[left, black] {\(-\frac{\pi}{4}\)};
+				\draw[gray, dashed] (B) -- (O |- B) node[left, black] {\(-\frac{\pi}{2}\)};
+			\end{scope}
+		\end{tikzpicture}
 		\\
 
 		\midrule[1pt]
@@ -136,7 +222,9 @@
 		%
 		% PT2
 		%
-		PT\(_2\) &
+		PT\(_2\)
+		&
+		% symbol
 		\begin{tikzpicture}
 			\node[rtpt2] (G) {};
 			\node[anchor = south west] at (G.north west) {\(K\)};
@@ -146,9 +234,11 @@
 			\draw[ultra thick, ->] (G.east) -- ++(.5,0) node[right] {\(y\)};
 		\end{tikzpicture}
 		&
+		% diff eq
 		T^2 \ddot{y} + 2\zeta T \dot{y} + y = Ku &
 		\frac{K}{T^2 (j\omega)^2 + 2\zeta T (j\omega) + 1} 
 		&
+		% nyquist diagram
 		\begin{tikzpicture}
 			\draw[axis] (-.2,0) -- (1.8,0) node[right] {Re};
 			\draw[axis] (0,-1) -- (0,.6) node[above] {Im};
@@ -166,6 +256,42 @@
 				(0,-.7) node[dot] {} node[below left = 4pt, anchor = north west] {\(\omega = 1/T\)}
 			;
 		\end{tikzpicture}
+		&
+		% bode diagram
+		\begin{tikzpicture}
+			% amplitude
+			\draw[axis] (-.2,0) node[left] {0} -- (1.8,0) node[right] {\(\log \omega\)};
+			\draw[axis] (0,-.8) -- (0,.8) node[above] {\(|G|_\text{dB}\)};
+
+			\draw[line] (0,.5)
+				-- (.8,.5)  node[dot] (A) {}
+				-- (1,.7)   node[dot] (B) {} node[above, black] {\(\omega = \frac{1}{T}\)} % node[black, right] {\(\sim Q\)}
+				-- (1.2,.22) node[dot] (C) {}
+				-- node[pos = .9, black, left, anchor = east] {\(-40\frac{\text{dB}}{\text{Dek}}\)}
+				(1.7,-.5);
+
+			\draw[gray, thick] (A) -- (1,.5) -- (C);
+			\draw[gray, thick, <->] (.2,0) -- node[midway, right] {\(K_\text{dB}\)} (.2,.5);
+
+			% phase
+			\begin{scope}[xshift = 3.5cm]
+				\coordinate (O) at (0,.6);
+
+				\draw[axis] (O)
+					++ (-.2,0) node[left] {0} 
+					-- ++(2,0) node[right] {\(\log \omega\)};
+				\draw[axis] (0,-.8) -- (0,.8) node[above] {\(\angle G\)};
+
+				\draw[line] (0,.6)
+					-- (.3,.6) node[dot] {} node[above right, black] {\(\omega = \frac{1}{10 T}\)}
+					-- (.8,0) node[dot] (A) {} node[right, black] {\(\omega = \frac{1}{T}\)}
+					-- (1.3,-.6) node[dot] (B) {} node[below right, black] {\(\omega = \frac{10}{T}\)}
+					-- (1.7,-.6);
+
+				\draw[gray, dashed] (A) -- (O |- A) node[left, black] {\(-\frac{\pi}{2}\)};
+				\draw[gray, dashed] (B) -- (O |- B) node[left, black] {\(-\pi\)};
+			\end{scope}
+		\end{tikzpicture}
 		\\
 
 		\midrule[1pt]
@@ -173,7 +299,9 @@
 		%
 		% Integrator
 		%
-		I &
+		I
+		&
+		% symbol
 		\begin{tikzpicture}
 			\node[rtint] (G) {};
 			\node[anchor = south west] at (G.north west) {\(K\)};
@@ -181,8 +309,10 @@
 			\draw[ultra thick, ->] (G.east) -- ++(.5,0) node[right] {\(y\)};
 		\end{tikzpicture}
 		&
+		% diff eq
 		\dot{y} = K u & \frac{K}{j\omega}
 		&
+		% nyquist diagram
 		\begin{tikzpicture}
 			\draw[axis] (-.2,0) -- (1.8,0) node[right] {Re};
 			\draw[axis] (0,-1) -- (0,.3) node[above] {Im};
@@ -193,6 +323,35 @@
 				(0,-.5) node[dot] {} node[left] {\(j\)}
 			;
 		\end{tikzpicture}
+		&
+		% bode diagram
+		\begin{tikzpicture}
+			% amplitude
+			\begin{scope}[yshift = 2.5mm]
+				\draw[axis] (0,0)
+					++ (-.2,0) node[left] {0}
+					-- ++(2,0) node[right] {\(\log \omega\)};
+
+				\draw[axis] (0,0)
+					++(0,-.5) 
+					-- ++(0,1) node[above] {\(|G|_\text{dB}\)};
+
+				\draw[line] (0,.3)
+					-- (.8,0) node[dot] {} node[black, above right] {\(\omega = \frac{1}{K}\)}
+					-- (1.6,-.3);
+			\end{scope}
+
+			% phase
+			\begin{scope}[xshift = 3.5cm]
+				\coordinate (O) at (0,.6);
+				\draw[axis] (O)
+					++ (-.2,0) node[left] {0} 
+					-- ++(2,0) node[right] {\(\log \omega\)};
+
+				\draw[axis] (0,-.2) -- (0,.8) node[above] {\(\angle G\)};
+				\draw[line] (0,0) node[left, black] {\(-\frac{\pi}{2}\)} -- (1.7,0);
+			\end{scope}
+		\end{tikzpicture}
 		\\
 
 		\midrule[1pt]
@@ -200,7 +359,9 @@
 		%
 		% Proportional with Integrator
 		%
-		PI &
+		PI
+		&
+		% symbol
 		\begin{tikzpicture}
 			\node[rtpi] (G) {};
 			\node[anchor = south west] at (G.north west) {\(K\)};
@@ -209,9 +370,11 @@
 			\draw[ultra thick, ->] (G.east) -- ++(.5,0) node[right] {\(y\)};
 		\end{tikzpicture}
 		&
+		% diff eq
 		y = K_R \left( u + \int_0^t \frac{u ~d\tau}{T} \right) &
 		K \left( 1 + \frac{1}{j\omega T} \right)
 		&
+		% nyquist diagram
 		\begin{tikzpicture}
 			\draw[axis] (-.2,0) -- (1.8,0) node[right] {Re};
 			\draw[axis] (0,-1) -- (0,.4) node[above] {Im};
@@ -222,6 +385,9 @@
 				(.7,0) node[dot] {} node[above right = 2pt] {\(\omega\to\infty\)}
 			;
 		\end{tikzpicture}
+		&
+		% bode diagram
+		%% TODO: complete missing bode diagram for PI
 		\\
 
 		\midrule[1pt]
@@ -229,16 +395,21 @@
 		%
 		% Differentiator
 		%
-		D &
+		D
+		&
+		% symbol
 		\begin{tikzpicture}
 			\node[rtdiff] (G) {};
 			\node[anchor = south west] at (G.north west) {\(K\)};
 			\draw[ultra thick, ->] (G.west) ++(-.5,0) node[left] {\(u\)} -- (G.west);
 			\draw[ultra thick, ->] (G.east) -- ++(.5,0) node[right] {\(y\)};
 		\end{tikzpicture}
+		Nicht realisierbar!
 		&
+		% diff eq
 		y = K\dot{u} & j\omega K
 		&
+		% nyquist diagram
 		\begin{tikzpicture}
 			\draw[axis] (-.2,0) -- (1.8,0) node[right] {Re};
 			\draw[axis] (0,-.3) -- (0,1) node[above] {Im};
@@ -249,8 +420,35 @@
 			;
 		\end{tikzpicture}
 		&
-		&
-		Nicht realisierbar.
+		% bode diagram
+		\begin{tikzpicture}
+			% amplitude
+			\begin{scope}[yshift = 2.5mm]
+				\draw[axis] (0,0)
+					++ (-.2,0) node[left] {0}
+					-- ++(2,0) node[right] {\(\log \omega\)};
+
+				\draw[axis] (0,0)
+					++(0,-.5) 
+					-- ++(0,1) node[above] {\(|G|_\text{dB}\)};
+
+				\draw[line] (0,-.3)
+					-- (.8,0) node[dot] {} node[black, below] {\(\omega = \frac{1}{K}\)}
+					-- (1.6,.3);
+			\end{scope}
+
+			% phase
+			\begin{scope}[xshift = 3.5cm]
+				\coordinate (O) at (0,0);
+				\draw[axis] (O)
+					++ (-.2,0) node[left] {0} 
+					-- ++(2,0) node[right] {\(\log \omega\)};
+
+				\draw[axis] (0,-.2) -- (0,.8) node[above] {\(\angle G\)};
+
+				\draw[line] (0,.6) node[left, black] {\(\frac{\pi}{2}\)} -- (1.7,.6);
+			\end{scope}
+		\end{tikzpicture}
 		\\
 
 		\midrule[1pt]
@@ -258,7 +456,9 @@
 		%
 		% Real differentiator
 		%
-		DT\(_1\) &
+		DT\(_1\)
+		&
+		% symbol
 		\begin{tikzpicture}
 			\node[rtdt1] (G) {};
 			\node[anchor = south west] at (G.north west) {\(K\)};
@@ -267,8 +467,10 @@
 			\draw[ultra thick, ->] (G.east) -- ++(.5,0) node[right] {\(y\)};
 		\end{tikzpicture}
 		&
+		% diff eq
 		T\dot{y} + y = K\dot{u} & \frac{j\omega K}{1 + j\omega T}
 		&
+		% nyquist diagram
 		\begin{tikzpicture}
 			\draw[axis] (-.2,0) -- (1.8,0) node[right] {Re};
 			\draw[axis] (0,-.5) -- (0,1.1) node[above] {Im};
@@ -280,18 +482,155 @@
 				(.75,.75) node[dot] {} node[above] {\(\omega = 1/T\)}
 			;
 		\end{tikzpicture}
+		&
+		% bode diagram
+		%% TODO: complete missing bode diagram for DT1
 		\\
 
 		\bottomrule[2pt]
 	\end{tabularx}
+
+	\begin{multicols}{2}
+		\raggedright
+		%% TODO: finish
+		% \subsection{\"Aquivalente Glieder}
+		% \begin{center}
+		% 	\begin{tikzpicture}
+		% 		\matrix[column sep = 5mm]{
+		% 			\node[rtpi] {}; &
+		% 			\node {\(=\)}; &
+		% 			\node[rtprop] (P) {};
+		% 			\node[rtint, right = 7mm of P] (I) {}; \\
+		% 		};
+		% 		\draw[ultra thick, ->] (P.west) ++(-.4,0) -- (P.west);
+		% 		\draw[ultra thick, ->] (P) -- (I);
+		% 		\draw[ultra thick, <-] (I.east) ++(.4,0) -- (I.east);
+		% 	\end{tikzpicture}
+		% \end{center}
+
+		% \begin{center}
+		% 	\begin{tikzpicture}
+		% 		\matrix[column sep = 5mm]{
+		% 			\node[rtpt1] {}; &
+		% 			\node {\(=\)}; \\
+		% 		};
+		% 	\end{tikzpicture}
+		% \end{center}
+
+		\subsection{Schaltungen}
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}[
+					node distance = 1mm,
+					wire/.style = {ultra thick}
+				]
+				% series
+				\begin{scope}
+					\matrix (M) [column sep = 7mm, nodes = {rtbox}]{
+						\node (G1) {\(G_1\)}; & \node (G2) {\(G_2\)}; \\
+					};
+					
+					\node[above = 8mm of M] {Serieschaltung \(G = G_1 \cdot G_2\)};
+
+					\draw[wire, ->] (G1.west) ++(-.5,0) node[left] {\(u\)} -- (G1.west);
+					\draw[wire, ->] (G1) -- (G2);
+					\draw[wire, <-] (G2.east) ++(.5,0) node[right] {\(y\)} -- (G2.east);
+				\end{scope}
+
+				% parallel
+				\begin{scope}[xshift = 6cm]
+					\matrix (M) [row sep = 1mm, column sep = 7mm, nodes = {rtbox}]{
+						& \node[rtbox] (G1) {\(G_1\)}; \\
+						\node[rtsplit] (L) {}; & & \node[rtsum] (R) {}; \\
+						& \node[rtbox] (G2) {\(G_2\)}; \\
+					};
+					
+					\node[above = of M] {Parallelschaltung \(G = G_1 + G_2\)};
+
+					\draw[wire] (L.west) ++(-.5,0) node[left] {\(u\)} -- (L.west);
+					\draw[wire, ->] (L) |- (G1);
+					\draw[wire, ->] (L) |- (G2);
+					\draw[wire, ->] (G1) -| node[pos = .9, right] {\(+\)} (R);
+					\draw[wire, ->] (G2) -| node[pos = .9, right] {\(+\)} (R);
+					\draw[wire, <-] (R.east) ++(.5,0) node[right] {\(y\)} -- (R.east);
+				\end{scope}
+
+				% negative feedback
+				\begin{scope}[yshift = -4cm]
+					\matrix (M) [row sep = 4mm, column sep = 7mm] {
+						\node[rtsum] (L) {}; & \node[rtbox] (G0) {\(G_0\)}; & \node[rtsplit] (R) {}; \\
+						& \node[rtbox] (GF) {\(G_F\)}; \\
+					};
+
+					\node[above = of M] {R\"uckkopplung \(\displaystyle G = \frac{G_0}{1 + G_0 \cdot G_F}\)};
+
+					\draw[wire, ->] (L.west) ++(-.5,0) node[left] {\(u\)} -- node[pos = .6, below] {\(+\)} (L.west);
+					\draw[wire, ->] (L) -- (G0);
+					\draw[wire] (G0) -- (R);
+					\draw[wire, ->] (R) |- (GF);
+					\draw[wire, ->] (GF) -| node[pos = .9, left] {\(-\)} (L);
+					\draw[wire, <-] (R.east) ++(.5,0) node[right] {\(y\)} -- (R.east);
+				\end{scope}
+
+				% mason's rule
+				\begin{scope}[yshift = -4cm, xshift = 6cm]
+					%% TODO: mason's rule
+				\end{scope}
+			\end{tikzpicture}
+		\end{figure}
+
+		\subsection{PT\(_2\)--Glied}
+		\subsubsection{Sprungantwort}
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}
+				% parameters
+				\pgfmathsetmacro{\K}{2}
+				\pgfmathsetmacro{\T}{.4}
+				\pgfmathsetlengthmacro{\zeta}{.15}
+
+				% help macros
+				\pgfmathsetlengthmacro{\onemzsq}{sqrt(1 - \zeta^2)}
+				\pgfmathsetlengthmacro{\scale}{.8 * \linewidth / 10}
+
+				% axis
+				\draw[thick, <->] (.8 * \linewidth,0) node[right] {\(t\)} 
+					-- (0,0) -- (0,{2 + \K}) node[above] {\(y\)};
+
+				% plots
+				\draw[very thick, hsr-mauve] (0,0) -- ++(0,\K) -- (10,\K);
+
+				\draw[thick, gray, dashed, smooth, samples = 100, variable = \t, domain = 0:10]
+					plot ({\t * \scale}, {
+						\scale * \K * (1 - exp(-\zeta * \t / \T))
+					});
+
+				\draw[very thick, hsr-blue, smooth, samples = 100, variable = \t, domain = 0:10]
+					plot ({\t * \scale}, {
+						\scale * \K * (
+							1 - exp(-\zeta * \t / \T) * (
+								cos(\onemzsq * \t / \T * 180 / pi)
+								+ \zeta / \onemzsq * sin(\onemzsq * \t / \T * 180 / pi)
+							)
+						)
+					});
+
+			\end{tikzpicture}
+		\end{figure}
+		\subsubsection{D\"ampfung}
+		\[
+			K/G_{\text{PT}_2} = T^2 (j\omega)^2 + 2 \zeta T (j\omega) + 1
+			= \begin{cases}
+				\text{aperiodisch} & \zeta = 1     \\
+				\text{stabil}      & 0 < \zeta < 1 \\
+				\text{grenzstabil} & \zeta = 0     \\
+				\text{instabil}    & \zeta < 0 
+			\end{cases}
+		\]
+		\subsubsection{Ersatzmodell}
+	\end{multicols}
 \end{landscape}
 \restoregeometry
-
-\subsection{\"Aquivalente Glieder}
-
-\subsection{PT\(_2\)--Glied}
-\subsubsection{D\"ampfung}
-\subsubsection{Ersatzmodell}
 
 \subsubsection{Parameter der Sprungantwort}
 \renewcommand{\arraystretch}{1.8}
