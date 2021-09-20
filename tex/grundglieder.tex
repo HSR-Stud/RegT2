@@ -3,6 +3,7 @@
 	\section{LTI-Grundglieder \formelbuch{115 \& 201}}
 	\usetikzlibrary{arrows}
 	\usetikzlibrary{positioning}
+	\usetikzlibrary{intersections}
 	\usetikzlibrary{decorations.markings}
 	\usetikzlibrary{decorations.pathreplacing}
 	\tikzset{
@@ -490,7 +491,7 @@
 		\bottomrule[2pt]
 	\end{tabularx}
 
-	\begin{multicols}{2}
+	\begin{multicols*}{2}
 		\raggedright
 		%% TODO: finish
 		% \subsection{\"Aquivalente Glieder}
@@ -580,43 +581,7 @@
 		\end{figure}
 
 		\subsection{PT\(_2\)--Glied}
-		\subsubsection{Sprungantwort}
-		\begin{figure}[H]
-			\centering
-			\begin{tikzpicture}
-				% parameters
-				\pgfmathsetmacro{\K}{2}
-				\pgfmathsetmacro{\T}{.4}
-				\pgfmathsetlengthmacro{\zeta}{.15}
 
-				% help macros
-				\pgfmathsetlengthmacro{\onemzsq}{sqrt(1 - \zeta^2)}
-				\pgfmathsetlengthmacro{\scale}{.8 * \linewidth / 10}
-
-				% axis
-				\draw[thick, <->] (.8 * \linewidth,0) node[right] {\(t\)} 
-					-- (0,0) -- (0,{2 + \K}) node[above] {\(y\)};
-
-				% plots
-				\draw[very thick, hsr-mauve] (0,0) -- ++(0,\K) -- (10,\K);
-
-				\draw[thick, gray, dashed, smooth, samples = 100, variable = \t, domain = 0:10]
-					plot ({\t * \scale}, {
-						\scale * \K * (1 - exp(-\zeta * \t / \T))
-					});
-
-				\draw[very thick, hsr-blue, smooth, samples = 100, variable = \t, domain = 0:10]
-					plot ({\t * \scale}, {
-						\scale * \K * (
-							1 - exp(-\zeta * \t / \T) * (
-								cos(\onemzsq * \t / \T * 180 / pi)
-								+ \zeta / \onemzsq * sin(\onemzsq * \t / \T * 180 / pi)
-							)
-						)
-					});
-
-			\end{tikzpicture}
-		\end{figure}
 		\subsubsection{D\"ampfung}
 		\[
 			K/G_{\text{PT}_2} = T^2 (j\omega)^2 + 2 \zeta T (j\omega) + 1
@@ -627,8 +592,110 @@
 				\text{instabil}    & \zeta < 0 
 			\end{cases}
 		\]
-		\subsubsection{Ersatzmodell}
-	\end{multicols}
+
+		\subsubsection{Sprungantwort}
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}[
+				dot/.style = {
+					circle, draw = hsr-blue, thick,
+					fill = white,
+					inner sep = 0pt,
+					minimum size = 1mm,
+				},
+				% PT2 step response
+				declare function  = {
+					pt2step(\t, \Kv, \Tv, \zetav) = 
+						\scale * \Kv * (
+							1 - exp(-\zetav * \t / \Tv) * (
+								cos(sqrt(1 - \zetav * \zetav) * \t / \Tv * 180 / pi)
+								+ \zetav / sqrt(1 - \zetav * \zetav) * sin(sqrt(1 - \zetav * \zetav) * \t / \Tv * 180 / pi)
+							)
+						);
+				},
+			]
+				% parameters
+				\pgfmathsetmacro{\Kv}{2}
+				\pgfmathsetmacro{\Tv}{.4}
+				\pgfmathsetlengthmacro{\zetav}{.15}
+
+				% help macros
+				\pgfmathsetlengthmacro{\scale}{.8 * \linewidth / 10}
+
+				\pgfmathsetlengthmacro{\omegav}{1 / \Tv}
+				\pgfmathsetlengthmacro{\omegan}{\omegav * sqrt(1 - \zetav * \zetav)}
+
+				\pgfmathsetlengthmacro{\Ta}{(pi - acos(\zetav) * pi / 180) / \omegan}
+				\pgfmathsetlengthmacro{\Tm}{pi / \omegan}
+				\pgfmathsetlengthmacro{\Tn}{2 * pi / \omegan}
+
+				\coordinate (O) at (0,0);
+
+				% axis
+				\draw[thick, <->] (.8 * \linewidth,0) node[right] {\(t\)} 
+					-- (0,0) -- (0,{2 + \Kv}) node[above] {\(y\)};
+
+				% plots
+				\begin{scope}[xshift = 1cm]
+					%% step
+					\draw[very thick, hsr-mauve, text = black] (0,0) 
+						node[below] {\(0\)} -- ++(0,1) -- (9,1);
+
+					%% lower bound 
+					\draw[thick, gray, dashed, smooth, samples = 100, variable = \t, domain = 0:9] 
+						plot ({\t * \scale}, {
+							\scale * \Kv * (1 - exp(-\zetav * \t / \Tv))
+						});
+
+					%% stationary value 
+					\draw[thick, dashed, hsr-mauve] (0,1) -- (0,\Kv) -- ++(9,0);
+					
+					%% response
+					\draw[very thick, hsr-blue, samples = 180, variable = \t, domain = 0:9]
+						plot ({\t * \scale}, {pt2step(\t, \Kv, \Tv, \zetav)});
+
+					% annotations
+
+					\node[dot] (Ta) at ({\Ta * 1cm}, {\Kv}) {};
+					\node[dot] (Tm) at ({\Tm * 1cm}, {pt2step({\Tm}, \Kv, \Tv, \zetav)}) {};
+					\node[dot] (Tn) at ({\Tn * 1cm}, {pt2step({\Tn}, \Kv, \Tv, \zetav)}) {};
+					\node[dot] (Tn2) at ({\Tn * 2 * 1cm}, {pt2step({\Tn * 2}, \Kv, \Tv, \zetav)}) {};
+					\node[dot] (Tn3) at ({\Tn * 3 * 1cm}, {pt2step({\Tn * 3}, \Kv, \Tv, \zetav)}) {};
+
+					\draw[draw = gray, text = black, densely dotted]
+						% vertical
+						(Ta) -- (Ta |- O) node[below] {\(T_a\)}
+						(Tm) -- (Tm |- O) node[below] {\(T_m\)}
+						(Tn) -- (Tn |- O) node[below] {\(T_n\)}
+						(Tn2) -- (Tn2 |- O) node[below] {\(2 T_n\)}
+						(Tn3) -- (Tn3 |- O) node[below] {\(3 T_n\)}
+						% horizontal
+						(Tm) -- (Tm -| O) node[left] {\(y_m\)}
+						(0,\Kv) -- ++(-1,0) node[left] {\(y_\infty = K\)}
+						(0,1) -- ++(-1,0) node[left] {\(1\)}
+					;
+
+					% text
+					\node[above, xshift = 3mm, hsr-blue, fill = white] at (Tn2 |- O) {\(\displaystyle
+						K \left[ 1 - e^{-\zeta t / T} \left(
+							\cos(\omega_n t) +
+							\zeta / \sqrt{1 - \zeta^2} \sin(\omega_n t)
+						\right)\right]
+					\)};
+
+					\node[above = 2mm, xshift = 5mm] at (Tm) {\(
+						y_m = y_\infty e^{-\pi\zeta/\sqrt{1-\zeta^2}}
+					\)};
+
+					\matrix[fill = white, anchor = south west, column sep = 5mm] at ({1.5 cm * \Tn}, 2.75) {
+						\node {\(\omega = 1 / T, \quad \omega_n = 1 / T_n = \omega \sqrt{1 - \zeta^2}\)}; \\
+						\node {\(T_a = (\pi - \arccos\zeta) / \omega_n\)}; \\
+						\node {\(T_m = T_n / 2 = \pi / \omega_n\)}; \\
+					};
+				\end{scope}
+			\end{tikzpicture}
+		\end{figure}
+	\end{multicols*}
 \end{landscape}
 \restoregeometry
 
