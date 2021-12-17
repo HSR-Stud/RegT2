@@ -1,38 +1,53 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%
-% Dokumentinformationen %
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\titleinfo}{Regelungstechnik 2 - Formelsammlung}
-\newcommand{\authorinfo}{Braun \& Co., J. Rast, K\"orner, Gwerder}
-\newcommand{\versioninfo}{$Revision: 2.0 $ - gem\"ass Unterricht Markus Kottmann/FS2013}
+\documentclass[margin=small]{tex/hsrzf}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Standard projektübergreifender Header für
-% - Makros 
-% - Farben
-% - Mathematische Operatoren 
-%
-% DORT NUR ERGÄNZEN, NICHTS LÖSCHEN
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\include{header/header}
+\usepackage{tex/hsrstud}
+\usepackage{tex/regtec}
 
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=swiss]{german}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+    version={4.0},
+    lang={german},
+]{doclicense}
+
+\usepackage{pdflscape}
+\usepackage{tabularx}
+\usepackage{ltablex}
 \usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{tikz}
-
-
+\usepackage{multicol}
 \usepackage{enumitem}
-\setlist{noitemsep,topsep=1pt,parsep=1pt,partopsep=1pt}
+\usepackage{longtable}
+\usepackage{float}
 
-\raggedbottom
-% Möglichst keine Ergänzungen hier, sondern in header.tex
+\newcommand\formelbuch[1]{\texttt{\textcolor{red!60!black}{\small S#1}}}
+
+\title{Regelungstechnik 2 -- Formelsammlung}
+\author{Braun \& Co., J. Rast, K\"orner, Gwerder, Pross}
+% \versioninfo}{$Revision: 2.0 $ - gem\"ass Unterricht Markus Kottmann/FS2013}
+
 \begin{document} 
- 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{sections/GegenkopplungStabilitaet}
+\maketitle
+\tableofcontents
+
+\section*{Lizenz}
+\doclicenseThis{}
+
 \newpage
-\input{sections/PidRegler}
-\input{sections/Diverses}
+
+\input{tex/grundglieder}
+\twocolumn
+\input{tex/stabilitaet}
+\input{tex/pid}
+\onecolumn
+
+\newgeometry{hmargin = 1.2cm, vmargin = 2cm}
+\input{tex/bode}
+\restoregeometry
+
+
 
 \end{document}
